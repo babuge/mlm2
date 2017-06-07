@@ -1,0 +1,193 @@
+getMoney-page{
+ ion-header{
+    .toolbar{
+         .toolbar-background,
+    .toolbar-background-ios{
+         background-image: url("../assets/images/bg_top.jpg");
+        background-size:100% 100%; 
+    }
+      .button-inner{
+        color:#fff;
+      }
+          .back-button.show-back-button{
+      color:#fff;
+    }
+    .ion-ios-arrow-back:before {
+    content: "\f27d";
+}
+    }
+    &.header-md::after,&.header-ios::after{background-image:none;}
+    .toolbar-title{
+      color:#fff;
+    }
+    .btn_next{background:none;color:#fff;}
+        .back-button-icon-ios,.back-button-icon-md{color:#fff;}
+        .back-button-text{&.back-button-text-ios,&.back-button-text-md{color:transparent;}}
+  }
+  .toolbar-title{
+    text-align: center;
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:4px #fd3f83;
+    &.toolbar-title-md{margin-left:-27px;}
+  }
+  .toolbar-title::after{ 
+    content:'我赚的米';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:0;
+  }
+
+
+  ion-content{
+    height:100%;
+    overflow: hidden;
+    background:url('../assets/images/money_y_bg.jpg') repeat-y center;
+    background-size:100% auto;
+    .padnT5{
+      padding-top:5px;
+    }
+  
+  section.top-user-info{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color:#ff4990;
+    padding-top: 5px;
+    background-color:#fff;
+    background-size: auto 100%;
+
+    .h3PdnTop{
+      margin:10px auto;
+      font-size:1.2rem;
+      color:#aaa;
+
+    }
+    .img-icon {
+       width:100px;
+      height:100px;
+      margin: 10px auto 0 auto;
+      border-radius: 50%;
+      background: url('../assets/images/bg_tx.png');
+      background-size: 100%;
+      padding: 7px;
+      img{
+        border-radius: 50%;
+        border: 3px solid #fff;
+            height: 86px;
+          width: 86px;
+      }
+      
+
+    }
+  
+    }
+    .text-lh-32{
+      line-height: 3.2rem;
+    }
+    .user-name {
+      display: block;
+      margin-top: 8px;
+      width:100%;
+      height: 10px;
+    }
+    .money_num{
+      height:90px;
+      margin:0;
+      padding:0;
+      margin-top:3px;
+      text-align:center;
+      color:#f24581;
+      font-family: "FZY4JW1";
+      font-size:8rem;
+    }
+    .num-p{
+      padding:0;
+      margin:0 auto;
+      .user-num{
+      display: block;
+      margin: 18px auto auto;
+
+      font-size:1.4rem;
+      }
+    }
+    .noMargin{
+      margin-bottom:0;
+      padding-bottom:7px;
+    }
+    .money{
+      font-size: 2.5rem;
+    }
+    .voidBg{
+      position:relative;
+      bottom:-2px;
+      width:100%;
+      height:60px;
+      background:url('../assets/images/mm_center_topbg.png')no-repeat center bottom;
+       background-repeat: repeat-x;
+      background-size:auto 100%;
+     
+    }
+
+
+
+
+ section.cont-info{
+    background:url('../assets/images/money_y_bg.jpg') repeat-y center;
+    background-size:100% auto;
+    ion-list{
+      .imgWH{
+        width:100px;
+        height:auto;
+        opacity:1;
+        &:hover{
+        transform: translate3d(2px, 2px, 0px) scale(1);
+        opacity:0.9;
+        transition: transform 60ms, opacity 60ms 0ms;
+       }
+      }
+    }
+   .card-md,
+   .card-ios{
+     margin:12px 12px 4px 12px;
+     height:56px;
+     box-shadow:0 2px 2px 0 rgba(255, 202, 230, 0.28), 0 3px 1px -2px rgba(255, 202, 230, 0.4), 0 1px 5px 0 rgba(255, 202, 230, 0.24);
+   }
+   .label-ios,
+   .label-md{
+     h2{
+       color:#ff4990;
+     }
+   }
+   
+   .item-md,
+   .item-ios{    
+     color:#ff747a;
+      .button-effect {
+      background-color: rgba(255, 3, 3, 0.8);
+      }
+   }
+   .mlm_item_show{
+      .item-inner{
+      border-bottom: 0.55px solid rgba(255, 0, 230, 0.1);
+      padding-top:3px;
+      }
+    .label-md,.label-ios{
+      padding-left: 10px;
+    }
+   }
+  .item-ios.activated,
+  .item-md.activated{
+    background-color:#ffdbdb;
+}
+
+ }
+ }  }

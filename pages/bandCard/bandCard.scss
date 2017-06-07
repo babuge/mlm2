@@ -1,0 +1,191 @@
+bandCard-page{
+    ion-header{
+    .toolbar{
+         .toolbar-background,
+    .toolbar-background-ios{
+         background-image: url("../assets/images/bg_top.jpg");
+        background-size:100% 100%;
+            border: none;
+    }
+      .button-inner{
+        color:#fff;
+      }
+      .back-button.show-back-button{
+      color:#fff;
+    }
+    .ion-ios-arrow-back:before {
+    content: "\f27d";
+}
+    }
+    &.header-md::after,&.header-ios::after{
+      background-image:none;
+    }
+    .toolbar-title{
+      color:#fff;
+    }
+
+    }
+    .btn_next{background:none;color:#fff;}
+    .back-button-icon-ios,.back-button-icon-md{color:#fff;}
+    .back-button-text{&.back-button-text-ios,&.back-button-text-md{color:transparent;}}
+  
+  .toolbar-title{
+    text-align: center;
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:4px #fd3f83;
+    &.toolbar-title-md{margin-left:-32px;}
+  }
+  .toolbar-title::after{ 
+    content:'绑定银行卡';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:0;
+  }
+
+  ion-content{
+      &.content-ios,
+      &.content-md{
+          background-color:#f7f7f7;
+          background-size:100%;      
+      } 
+      .partner_bar{
+          margin:0;
+          padding:0;
+          height:1px;
+          width:100%;
+          position:relative;
+          top:0;
+          left:0;
+          z-index: 2;
+     .top_bottom{
+         list-style: none;
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:9px;
+      background:url("../assets/images/border_top_img.png") no-repeat center;
+      background-repeat: repeat-x;
+      background-size:auto 100%;
+       }
+      }
+      dl{
+          width:100%;
+          height:auto;
+          margin:0;
+          padding:8px 20px;
+          background-color:#ed4c8d;
+          &:after{content:"";display: block;clear: both;}
+          dt,dd{
+              padding:3;   
+              list-style: none;
+              color:#fff;
+              font-size:1.4rem;
+              line-height:2rem;
+          }
+          dd{margin-top:30px;margin-left:15px; }
+          dt{margin-top:15px; img{width:68px;height:68px;border-radius: 10px;border:2px solid #fff;}}
+      }
+      ion-list{
+&.list-ios,&.list-md{ .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{border:none;}}
+        &.list-ios,
+        &.list-md{
+          .item-ios,.item-md{background-color:transparent;}
+          .item-block{
+
+            .item-inner{
+            border:none;  
+        }}}
+        .editCard{        
+              display: block;  
+              letter-spacing: 1px; 
+              color:#fff;
+              width:150px;
+              height:30px;
+              margin:auto;
+              background-color:#fAA;
+              margin-top:3px;
+              border:none;
+              text-align:center;
+              border-radius:26px;
+              
+            }  
+        .paddNoBot{
+          position:relative;
+          width:290px;
+          height:100px;
+          margin:10px auto 0 auto;
+          margin-bottom:0;
+          background:url("../assets/images/bankCard_bg.jpg") no-repeat center;
+          background-size:100% 100%;
+          border-radius: 26px; 
+          overflow: hidden;
+          font-size:1.4rem;
+          padding-left:25px;
+          padding-top:25px;
+          border:2px dashed #dedede;           
+            
+          }
+       
+          .addCard{
+            box-sizing:border-box;
+            color:#7a7a7a;
+            font-size:1.5rem;
+            text-align:center;
+            line-height:98px;
+            border:2px dashed #dedede;
+            margin-bottom:0;
+            background:url("../assets/images/bankCard_bg.jpg") no-repeat center;
+            background-size:100% 100%;
+            border-radius: 26px; 
+            vertical-align: bottom;
+
+            ion-icon{
+              font-size:3rem;
+            }
+            span{
+              position:relative;
+              padding-left:15px;
+              top:-5px;
+            }
+
+                   
+            
+       
+            
+        }
+      }
+  
+
+
+
+
+  
+  
+  
+  
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

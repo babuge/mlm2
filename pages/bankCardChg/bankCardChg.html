@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+       绑定银行卡
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+        <!--弹出-->
+    <div class="errorFor" *ngIf='showEmg'>{{emassege}}</div>
+    <ul class="partner_bar"><li class="top_bottom"></li></ul>
+    <h5 class="nameTxt" text-center>请确认该银行开户姓名必须为 {{userName}}</h5>    
+    <ul class="fromBoxa">
+        <li class="fristLi ">持卡人</li>
+        <li class="endLi ">{{userName}}</li>        
+    </ul>
+    <ul class="fromBox">
+        <li class="fristLi ">所属银行</li>
+        <li class="endLi ">
+            <div class="listBank">
+      
+                <select [(ngModel)]="gaming" class="selectBar">
+                <option value="工商银行">工商银行</option>
+                <option value="农业银行">农业银行</option>
+                <option value="建设银行">建设银行</option>
+                <option value="招商银行">招商银行</option>
+                </select>
+          
+            </div>
+        </li>        
+    </ul>
+    <ul class="fromBoxa">
+        <li class="fristLi ">银行卡号</li>
+        <li><input [(ngModel)]="bankCode" type="number"/></li>        
+    </ul>
+    <ul class="fromBoxa">
+        <li class="fristLi ">确认卡号</li>
+        <li ><input [(ngModel)]="reBankCode" type="number"/></li>        
+    </ul>
+    <button class="selectBtn" [disabled]="!bankCode||!reBankCode||!(reBankCode===bankCode)" (click)="okFn()">确认</button>
+
+
+
+</ion-content>

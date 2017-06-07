@@ -1,0 +1,161 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+       我的人脉
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ul class="partner_bar"><li class="top_bottom"></li></ul>
+    <section class="solide">
+        <ion-slides autoplay='4000' loop='true' class="mlm-slide">
+        <ion-slide>
+        <img src="assets/images/partner_bg_solide.jpg" />
+        </ion-slide>
+        <ion-slide>
+        <img src="assets/images/partner_bg_solide.jpg" />
+        </ion-slide>
+        <ion-slide>
+        <img src="assets/images/partner_bg_solide.jpg" />
+        </ion-slide>
+        </ion-slides>
+    </section>
+
+<ul class="partner_bar1"><li class="top_bottom"></li></ul>
+  <div class="barBg">
+        <!--一度人脉-->
+    <ul class="partner_frist  oneBg" (click)="showFn(1)">
+      <li class="titBar float-left">一度人脉</li>
+      <li class="persenNum float-left">6人</li>
+      <li class="tit_icon float-left iconOne"></li>
+    </ul>
+    <ul class="show_frist " *ngIf="showOne">
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_11.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>陈颖</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_15.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>小安</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_19.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>孙雪</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_23.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>薛萌</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_03.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>陆莹琪</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_07.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>一只大黄鸡</h5></ion-col>
+        </ion-row>  
+      </li>    
+    </ul>
+        <!--二度人脉-->
+    <ul class="partner_frist twoBg" (click)="showFn(2)">
+      <li class="titBar float-left">二度人脉</li>
+      <li class="persenNum float-left">12人</li>
+      <li class="tit_icon float-left iconTwo"></li>
+    </ul>
+    <ul class="show_frist" *ngIf="showTwo">
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_11.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>陈颖</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_15.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>小安</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_19.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>孙雪</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_23.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>薛萌</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_03.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>陆莹琪</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_07.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>一只大黄鸡</h5></ion-col>
+        </ion-row>  
+      </li>    
+    </ul>
+            <!--三度人脉-->
+    <ul class="partner_frist threeBg" (click)="showFn(3)">
+      <li class="titBar float-left">三度人脉</li>
+      <li class="persenNum float-left">18人</li>
+      <li class="tit_icon float-left iconThree"></li>
+    </ul>
+    <ul class="show_frist" *ngIf="showThree">
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_11.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>陈颖</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_15.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>小安</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src="assets/images/partners_tx_19.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>孙雪</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src=" assets/images/partners_tx_23.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>薛萌</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src=" assets/images/partners_tx_03.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>陆莹琪</h5></ion-col>
+        </ion-row>  
+      </li>
+      <li>
+        <ion-row>
+          <ion-col width-33 text-center><span class="part_imgbar"><img class="part_picture" src=" assets/images/partners_tx_07.jpg"/></span></ion-col>
+          <ion-col width-67 center><h5 class="part_name" text-center>一只大黄鸡</h5></ion-col>
+        </ion-row>  
+      </li>    
+    </ul>
+  </div>
+
+</ion-content>   

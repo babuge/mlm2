@@ -1,0 +1,182 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+       邀请好友
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="errorFor" *ngIf='showEmg'>{{emassege}}</div>
+  <!--<div class="pro_bar">
+    <ion-img src='assets/images/products_img.jpg'></ion-img>
+  </div>-->
+  <!--秘密-->
+
+  <ion-list>
+    <ion-card>
+    <ion-item (click)='onfrist()'>
+      <ion-icon  [name]='iconName1'  item-left large></ion-icon>
+      <h2>设置自己的秘密</h2>
+      <!--ios-arrow-up-outline-->
+    </ion-item>
+    </ion-card>
+    <ion-item *ngIf="fristVal1" class='mlm_item_show bgOne'>
+        <div class="mlm_items">
+          <h5 class="secretH5">请选择秘密</h5>
+        </div>
+        <div class='selectBg'>
+
+
+
+
+
+    <div  class="slectBar"> 
+    1. <input type="text" class="qust" [(ngModel)]="qustVal" placeholder="设置秘密~~" [attr.readonly]="anserRead1"/>
+    <ion-icon class="iconTag1" [name]='iconName3' item-right large (click)='onThrid(0)'></ion-icon>   
+    </div>
+    <div *ngIf="fristVal3" class="optionBar">
+    <ion-scroll scrollY="true" style="width: 100%; height:130px;">
+    <li>
+    <ion-list radio-group>
+    <ion-item  *ngFor=" let itema of arrOne;let i = index;" >
+    <ion-label>{{itema.questions}}</ion-label>
+    <ion-radio name='qustOne' value={{i}} (click)='qustClk(itema.questions,itema.oneanswers,itema.twoanswers,i,itema.id,0)'></ion-radio>
+    </ion-item>
+    </ion-list>
+    </li>
+    </ion-scroll>
+    <ion-row>
+    <ion-col width-100 text-center><button ion-button small clear class="autoQuest" (click)='clickSet(0)'>自定义问题</button></ion-col>
+    </ion-row>
+    </div> 
+    <div *ngIf="qustShow1" class="questBar"> 
+    <ion-row><ion-col width-50 ><input  type="radio" name="type"  checked='checked' (click)="radioCkFn('0')"  name='quest1' /><input  type='text'  [(ngModel)]="anone" placeholder="选答案" [attr.readonly]="anserRead1" class="radioId"/></ion-col>
+    <ion-col width-50 right ><input  type="radio" name="type"    (click)="radioCkFn('0')" name='quest1'/><input type='text' [(ngModel)]='antwo' placeholder="选答案" class="radioId" [attr.readonly]="anserRead1"/></ion-col></ion-row>
+    </div>
+
+      <!--twoQuest-->
+        <div  class="slectBar"> 
+          2. <input type="text" class="qust" [(ngModel)]="qustVal2" placeholder="设置秘密~~" [attr.readonly]="anserRead2"/>
+          <ion-icon class="iconTag1" [name]='iconName4' (click)='onThrid(1)' item-right large></ion-icon>   
+        </div>
+        <div *ngIf="fristVal4" class="optionBar">
+          <ion-scroll scrollY="true" style="width: 100%; height:130px;">
+          <li>
+            <ion-list radio-group>
+            <ion-item  *ngFor=" let itema of arrOne;let i = index;" >
+            <ion-label>{{itema.questions}}</ion-label>
+            <ion-radio name='qustOne' value={{i}} (click)='qustClk(itema.questions,itema.oneanswers,itema.twoanswers,i,itema.id,1)'></ion-radio>
+            </ion-item>
+            </ion-list>
+          </li>
+          </ion-scroll>
+          <ion-row>
+          <ion-col width-100 text-center><button ion-button small clear class="autoQuest" (click)='clickSet(1)'>自定义问题</button></ion-col>
+          </ion-row>
+        </div> 
+        <div *ngIf="qustShow2" class="questBar"> 
+          <ion-row><ion-col width-50><input type="radio" (click)="radioCkFn('1')" checked='checked' name='quest2' /><input  type='text'  [(ngModel)]="anone2" placeholder="选答案" [attr.readonly]="anserRead2" class="radioId"/></ion-col>
+          <ion-col width-50 right><input type="radio" (click)="radioCkFn('1')" name='quest2'/><input type='text' [(ngModel)]='antwo2' placeholder="选答案" class="radioId" [attr.readonly]="anserRead2"/></ion-col></ion-row>
+        </div>
+<!--threeQuest-->
+        <div  class="slectBar"> 
+          3. <input type="text" class="qust" [(ngModel)]="qustVal3" placeholder="设置秘密~~" [attr.readonly]="anserRead3"/>
+          <ion-icon class="iconTag1" [name]='iconName5' (click)='onThrid(2)' item-right large></ion-icon>   
+        </div>
+        <div *ngIf="fristVal5" class="optionBar">
+          <ion-scroll scrollY="true" style="width: 100%; height:130px;">
+          <li>
+            <ion-list radio-group>
+            <ion-item  *ngFor=" let itema of arrOne;let i = index;" >
+            <ion-label>{{itema.questions}}</ion-label>
+            <ion-radio name='qustOne' value={{i}} (click)='qustClk(itema.questions,itema.oneanswers,itema.twoanswers,i,itema.id,2)'></ion-radio>
+            </ion-item>
+            </ion-list>
+          </li>
+          </ion-scroll>
+          <ion-row>
+          <ion-col width-100 text-center><button ion-button small clear class="autoQuest" (click)='clickSet(2)'>自定义问题</button></ion-col>
+          </ion-row>
+        </div> 
+        <div *ngIf="qustShow3" class="questBar"> 
+          <ion-row><ion-col width-50><input type="radio" (click)="radioCkFn('2')" checked='checked' name='quest3' /><input  type='text'  [(ngModel)]="anone3" placeholder="选答案" [attr.readonly]="anserRead3" class="radioId"/></ion-col>
+          <ion-col width-50 right><input type="radio" (click)="radioCkFn('2')" name='quest3'/><input type='text' [(ngModel)]='antwo3' placeholder="选答案" class="radioId" [attr.readonly]="anserRead3"/></ion-col></ion-row>
+        </div>
+<!--fourQuest-->
+        <div  class="slectBar"> 
+          4. <input type="text" class="qust" [(ngModel)]="qustVal4" placeholder="设置秘密~~" [attr.readonly]="anserRead4"/>
+          <ion-icon class="iconTag1" [name]='iconName6' (click)='onThrid(3)' item-right large></ion-icon>   
+        </div>
+        <div *ngIf="fristVal6" class="optionBar">
+          <ion-scroll scrollY="true" style="width: 100%; height:130px;">
+          <li>
+            <ion-list radio-group>
+            <ion-item  *ngFor=" let itema of arrOne;let i = index;" >
+            <ion-label>{{itema.questions}}</ion-label>
+            <ion-radio name='qustOne' value={{i}} (click)='qustClk(itema.questions,itema.oneanswers,itema.twoanswers,i,itema.id,3)'></ion-radio>
+            </ion-item>
+            </ion-list>
+          </li>
+          </ion-scroll>
+          <ion-row>
+          <ion-col width-100 text-center><button ion-button small clear class="autoQuest" (click)='clickSet(3)'>自定义问题</button></ion-col>
+          </ion-row>
+        </div> 
+        <div *ngIf="qustShow4" class="questBar"> 
+          <ion-row><ion-col width-50><input type="radio" (click)="radioCkFn('3')" checked='checked' name='quest4' /><input  type='text'  [(ngModel)]="anone4" placeholder="选答案" [attr.readonly]="anserRead4" class="radioId"/></ion-col>
+          <ion-col width-50 right><input type="radio" (click)="radioCkFn('3')" name='quest4'/><input type='text' [(ngModel)]='antwo4' placeholder="选答案" class="radioId" [attr.readonly]="anserRead4"/></ion-col></ion-row>
+        </div>
+<!--fifQuest-->
+        <div  class="slectBar"> 
+          5. <input type="text" class="qust" [(ngModel)]="qustVal5" placeholder="设置秘密~~" [attr.readonly]="anserRead5"/>
+          <ion-icon class="iconTag1" [name]='iconName7' (click)='onThrid(4)' item-right large></ion-icon>   
+        </div>
+        <div *ngIf="fristVal7" class="optionBar">
+          <ion-scroll scrollY="true" style="width: 100%; height:130px;">
+          <li>
+            <ion-list radio-group>
+            <ion-item  *ngFor=" let itema of arrOne;let i = index;" >
+            <ion-label>{{itema.questions}}</ion-label>
+            <ion-radio name='qustOne' value={{i}} (click)='qustClk(itema.questions,itema.oneanswers,itema.twoanswers,i,itema.id,4)'></ion-radio>
+            </ion-item>
+            </ion-list>
+          </li>
+          </ion-scroll>
+          <ion-row>
+          <ion-col width-100 text-center><button ion-button small clear class="autoQuest" (click)='clickSet(4)'>自定义问题</button></ion-col>
+          </ion-row>
+        </div> 
+        <div *ngIf="qustShow5" class="questBar"> 
+          <ion-row><ion-col width-50><input type="radio" (click)="radioCkFn('4')" checked='checked' name='quest5' /><input  type='text'  [(ngModel)]="anone5" placeholder="选答案" [attr.readonly]="anserRead5" class="radioId"/></ion-col>
+          <ion-col width-50 right><input type="radio" (click)="radioCkFn('4')" name='quest5'/><input type='text' [(ngModel)]='antwo5' placeholder="选答案" class="radioId" [attr.readonly]="anserRead5"/></ion-col></ion-row>
+        </div>
+        <!--确定-->
+        <ion-row>
+        <ion-col width-35></ion-col>
+        <ion-col width-30 text-center><button style="width:80px;"  ion-button class="btn_invite" (click)='queding()'>确 定</button></ion-col>
+        <ion-col width-35></ion-col>
+        </ion-row>
+        <!--end-->
+
+      </div>
+      <div class='select_btmbg'></div>
+    </ion-item>
+  </ion-list>
+  <!--攻略-->
+  <ion-list>
+  <ion-card>
+    <ion-item (click)='onSecond()'>
+      <ion-icon  [name]='iconName2'  item-left large></ion-icon>
+      <h2>邀请攻略</h2>
+      <!--ios-arrow-up-outline-->
+    </ion-item>
+  </ion-card>
+  <div *ngIf="fristVal2" padding class='mlm_item_show mlm_noPdn PdnT5 '>
+  <span class="breakTxt">邀请攻略：1、注意自定义问题有字数限制，问题不超过11，答案不超过3。
+  2、为保证能拼团成功，建议用户按照双倍的数量邀请好友。例：宝贝需要的支持人数为30人，如用户邀请的QQ好友（含微信好友）数量为50或60人，拼团成功的几率会得到大大的提高。
+  3、为保证得到好友的支持，建议不要群发，尽可能采用一对一分享的方式，把二维码邀请图发送给好友，同时留言提醒好友进去支持你。
+  4、在拼团进行的过程中，用户可以通过APP查看进度，然后根据拼团进展确定是否再次邀请更多好友进行支持。
+  5、除通过QQ（或微信）对好友进行一对一邀请外，给好友留言、或去电话提醒好友点击二维码邀请图片，会得到意想不到的效果哟！</span>
+  </div>
+</ion-list>
+</ion-content>

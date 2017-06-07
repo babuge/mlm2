@@ -1,0 +1,96 @@
+<ion-header [hidden]='hidden'>
+  <ion-navbar>
+    <ion-title>
+      宝藏
+    </ion-title>
+    <!--<button ion-button right icon-only menuToggle color="light">-->
+      <!--<ion-icon name="menu"></ion-icon>-->
+      <!--更多-->
+    <!--</button>-->
+  </ion-navbar>
+</ion-header>
+ <ion-header [hidden]='!hiden' class="subnav" *ngIf='!hidden' toggle>
+ 
+        <div class="scrolBar mlm_noPdn mlm_margnl">
+          <ion-scroll scrollX="true" style="width:100%;height:44px;" zooming="true">
+                <div style="width:480px; height:40px;" class="childBut">
+                    <button ion-button><span class='ion_bg bg1' (click)="cloth('1')"></span></button>
+                    <button ion-button><span class='ion_bg bg2' (click)="cloth('2')"></span></button>
+                    <button ion-button><span class='ion_bg bg3' (click)="cloth('3')"></span></button>
+                    <button ion-button><span class='ion_bg bg4' (click)="cloth('4')"></span></button>
+                    <button ion-button><span class='ion_bg bg5' (click)="cloth('5')"></span></button> 
+                    <button ion-button><span class='ion_bg bg6' (click)="cloth('6')"></span></button>
+                    <button ion-button><span class='ion_bg bg7' (click)="cloth('7')"></span></button>
+                    <button ion-button><span class='ion_bg bg8' (click)="cloth('8')"></span></button>                  
+                </div>
+            </ion-scroll>
+        </div>
+ </ion-header>
+<div class="carbar" *ngIf="showCar">
+<div class="car" >
+<div class="goodsInfo">
+<div class="close" (click)="hideCarFn()">+</div>
+<img class="img" [src]="wwwName+this.sxImg" alt="">
+<p class="tit">{{Goods.name}}</p>
+<p class="pri">价格 {{Goods.price}}</p>
+<p class="prir" >{{theOder}}</p>
+</div>
+<div class="scroll">
+<div class="rows ">
+  <span class="car-item" *ngFor="let item of Goods.goodstotals" [ngClass]="{'active': item==this.GoodsIndex,'noGoods': item.num==0}" (click)="ACTIVE_GOODS(item)">{{ item.attname }}</span>
+</div >
+</div>
+<div class="footer-btn"><span class="btn" (click)="JoinOrder(GoodsIndex)">确认</span></div>
+</div>
+</div>
+<ion-content (ionScroll)="onScroll($event)">
+  <ion-slides #slic class="mlm-slide" *ngIf="showslide" autoplay='3000' loop>
+    <ion-slide  *ngFor="let slie of slides">
+      <img [src]='wwwName+slie.adimg' />
+    </ion-slide>    
+  </ion-slides>
+  <section class="mlm-tabs-bg">
+    <div class="title-bar"></div>
+    <div class="mlm-tabs">
+      <div class="mlm-tabs-list">
+        <div class="mlm-tab bg1" (click)="cloth('1')"></div>
+        <div class="mlm-tab bg2" (click)="cloth('2')"></div>
+        <div class="mlm-tab bg3" (click)="cloth('3')"></div>
+        <div class="mlm-tab bg4" (click)="cloth('4')"></div>
+      </div>
+      <div class="mlm-tabs-list">
+        <div class="mlm-tab bg5" (click)="cloth('5')"></div>
+        <div class="mlm-tab bg6" (click)="cloth('6')"></div>
+        <div class="mlm-tab bg7" (click)="cloth('7')"></div>
+        <div class="mlm-tab bg8" (click)="cloth('8')"></div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="mlm-list-bg">
+    <div class="mlm-item" *ngFor="let hot of items">
+      <div class="image-box" ><img [src]="wwwName+hot.goodsimg"  (click)="toGoodsInfo(hot.id)"/></div>
+      <div class="content">
+        <p class="mlm-item-title">{{hot.name}}</p>
+        <div class="mlm-item-pri">
+          <span class="delstyl">￥ {{hot.price}}</span>&nbsp;<span class="mlm-item-num">剩余数量：<i>{{hot.num}}</i></span>
+        </div>
+        <div class="mlm-item-footer">
+          结束时间：<span class="mlm-item-footer-time">{{hot.addtime*1000+hot.xgdays*24*3600*1000+"" | date:'MM-dd'+" "+'hh:mm'}}</span>
+          <button class="btn right"  (click)="showCarFn(hot.id)">我要开团</button>
+          <span class="right cfd4">需<i>{{hot.supportnum}}</i>人支持</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+ <div class="showMg" *ngIf="showmg">{{moreInfo}}</div>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite2($event)" *ngIf="hasmore">
+  <ion-infinite-scroll-content
+  loadingSpinner="bubbles"
+  [loadingText]="moreInfo"
+  ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

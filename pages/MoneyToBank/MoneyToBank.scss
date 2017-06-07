@@ -1,0 +1,152 @@
+MoneyToBank-page{
+ ion-header{
+    .toolbar{
+         .toolbar-background,
+    .toolbar-background-ios{
+         background-image: url("../assets/images/bg_top.jpg");
+        background-size:100% 100%; 
+    }
+      .button-inner{
+        color:#fff;
+      }
+          .back-button.show-back-button{
+      color:#fff;
+    }
+    .ion-ios-arrow-back:before {
+    content: "\f27d";
+}
+    }
+    &.header-md::after,&.header-ios::after{background-image:none;}
+    .toolbar-title{
+      color:#fff;
+    }
+    .btn_next{background:none;color:#fff;}
+        .back-button-icon-ios,.back-button-icon-md{color:#fff;}
+        .back-button-text{&.back-button-text-ios,&.back-button-text-md{color:transparent;}}
+  }
+  .toolbar-title{
+    text-align: center;
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:4px #fd3f83;
+    &.toolbar-title-md{margin-left:-27px;}
+  }
+  .toolbar-title::after{ 
+    content:'提现';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:0;
+  }
+
+
+  ion-content{
+    height:100%;
+    overflow: hidden;
+    background:url('../assets/images/money_y_bg.jpg') repeat-y center;
+    background-size:100% auto;
+    .errorFor{
+    position:fixed;
+    top:60%;
+    left:50%;
+    width:120px;
+    height:30px;
+    padding:0 10px;
+    line-height:30px;
+    color:#fff;
+    margin-left:-60px;
+    text-align:center;
+    background-color:rgba(0,0,0,0.5);
+    border-radius: 5px;
+    z-index:300;
+    }
+   .MTB_bar{
+       width:100%;
+       margin:0 auto;
+       padding:20px 4% 0;
+       li{
+           list-style: none;
+           background-color:#fff;
+           &.fristLi{
+               width:100%;
+               padding:8px 15px;
+               height:50px;
+               .tixian{
+                   width:100%;
+                   height:50px;
+                   line-height: 80px;
+                   text-align:left;
+               }
+                .Card_bar{
+                width:100px;
+                height:50px;
+                line-height:50px;
+                }
+                .bankCard_code{
+                color:#333;
+                height:50px;
+                line-height:50px;
+                }
+              
+           }
+           &.moneyBar{
+               width:100%;
+               padding:8px 15px;
+               height:70px;
+               line-height:54px;
+                color:#222;
+                font-size:3rem;
+                .card_int{
+                    width:200px;
+                    border:none;
+                    background-color:transparent;
+                }
+
+           }
+             &.lastLi{
+                    padding:8px;
+                    width:100%;
+                    .tips{
+                        width:100%;
+                        height:40px;
+                        line-height:40px;
+                        color:#777;
+                        border:none;
+                        border-top:1px solid #eee;
+ 
+
+                }
+           }
+
+       }
+       .btn{
+           width:100%;
+           height:40px;
+           margin-top:15px;
+           background-color:#fe4b8d;
+           letter-spacing: 1px;
+           color:#fff;
+           border-radius: 5px;
+       }
+   }
+ 
+ 
+ 
+ 
+  
+  
+  
+  }  
+ 
+ 
+ 
+ 
+ 
+ }

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+       绑定银行卡
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ul class="partner_bar"><li class="top_bottom"></li></ul>
+    <dl><dt class="float-left"><img [src]="UserImg"/></dt><dd class="float-left">{{userName}}<div></div><div>{{phone}}</div></dd></dl>    
+    <ion-list>
+      <ion-item *ngIf="showNow">
+        <div class="paddNoBot">
+          <p>开户行：{{BankName}}</p>
+          <p>银行卡号：**** **** **** {{BankCarCode}}</p>
+        
+        </div>
+        <button class="editCard" (click)="editorCard()">编辑银行卡</button>
+      </ion-item>
+      <ion-item *ngIf="hideNow">
+         <div class="addCard" (click)="addCard()"><ion-icon name="md-add"></ion-icon><span>添加银行卡</span></div>       
+      </ion-item>      
+    </ion-list>
+
+
+
+
+</ion-content>

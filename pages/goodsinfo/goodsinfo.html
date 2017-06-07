@@ -1,0 +1,63 @@
+<!--
+  Generated template for the Showme page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar >
+    <ion-title data-name="商品介绍">商品介绍</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+  <span *ngIf="showPage">
+  <div class="imgbox">
+    <img [src]="wwwName+items.goodsimg" alt="">
+  </div>
+  <div class="price">
+    <div class="price-left">
+      <span class="label">市场价</span>￥<span>{{items.price}}</span>
+    </div>
+    <div class="price-right">
+      <span class="row">库存数量：<span class="number">{{items.goodstotalnum}}</span></span>
+      <span class="row">支持人数：<span class="number">{{items.supportnum}}</span></span>
+    </div>
+  </div>
+  <div class="timer">
+    <div class="imgs_box" *ngIf="!runhost">
+      <div class='img_bar' *ngFor='let ir of item'>
+        <img [src]="'assets/images/logo.png'"/>
+      </div>
+    </div>
+    <div class="timer-left">
+      结束时间：<span class="time">{{items.addtime*1000+items.xgdays*24*3600*1000+"" | date:'yy-MM-dd'+" "+'hh:mm:ss'}}</span>
+    </div>
+    <div class="timer-right" (click)="showCarFn(Goods)" *ngIf="runhost">
+      马上开团
+    </div>
+  </div>
+  <div class="describe">
+    <h3>{{items.name}}</h3>
+      <section [innerHTML]="items.info"></section>
+  </div>
+  
+
+</span>
+</ion-content>
+    <div class="carbar" *ngIf="showCar">
+    <div class="car" >
+    <div class="goodsInfo">
+      <div class="close" (click)="hideCarFn()">+</div>
+      <img class="img" [src]="wwwName+this.sxImg" alt="">
+      <p class="tit">{{items.name}}</p>
+      <p class="pri">价格 {{items.price}}</p>
+      <p class="prir" >{{theOder}}</p>
+    </div>
+    <div class="scroll">
+      <div class="rows ">
+        <span class="car-item" *ngFor="let item of Goods" [ngClass]="{'active': item==this.GoodsIndex,'noGoods': item.num==0}" (click)="ACTIVE_GOODS(item)">{{ item.attname }}</span>
+      </div >
+    </div>
+    <div class="footer-btn"><span class="btn" (click)="JoinOrder()">确认</span></div>
+  </div>
+    </div>

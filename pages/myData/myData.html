@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+       个人资料
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <section class="mydt_top">  
+  <ion-card>
+    <ion-item (click)='showPoto()'>
+      <ion-img [src]="UserImg" item-left large></ion-img>
+      <h2>编辑头像</h2>
+      <ion-icon name='ios-arrow-forward-outline' item-right large></ion-icon>
+    </ion-item> 
+  </ion-card>
+  </section>
+  <ul class="mydt_ul">
+    <li>
+      <ion-row>
+        <ion-col class="col_w">昵称</ion-col>
+        <ion-col class="col_bdr">{{userName}}</ion-col>      
+      </ion-row>
+    </li>
+    <li>
+      <ion-row>
+        <ion-col class="col_w">账号</ion-col>
+        <ion-col class="col_bdr">{{phone}}</ion-col>      
+      </ion-row>
+    </li>
+  
+
+    <li>
+    <ion-card>
+    <ion-item >
+      <ion-row><ion-col><h2 class="h2one" (click)="setAdress()">编辑地址</h2></ion-col><ion-col><h2 class="h2two" (click)="setPassword()">设置秘码</h2></ion-col></ion-row>
+      <ion-icon name='md-settings' item-right large  (click)="setPassword()"></ion-icon>
+    </ion-item> 
+  </ion-card>
+    </li>
+    
+  </ul>
+  <section class="mydt_bottom">
+    <div class="position">
+      <div class="hr-img">
+        <span class="text-stroke-4" data-name="我的开团记录">我的开团记录</span>
+      </div>
+    </div>
+    <!--seccse-->
+    <div class="mlm-item" *ngFor="let Hstoy of Hosi">
+      <div class="image-box" ><img [src]="wwwName+Hstoy.goodstotal.imgpath" (click)="loockH(Hstoy.goods.id)"/></div>
+      <div class="content">
+        <p class="mlm-item-title">{{Hstoy.goods.name}}</p>
+        <div class="mlm-item-pri">
+          ￥{{Hstoy.goods.price}}&nbsp;<span class="mlm-item-num">{{Hstoy.goodstotal.attname}}<i></i></span>
+          <!--剩余数量-->
+        </div>
+        <div class="mlm-item-footer">
+          结束时间：<span class="mlm-item-footer-time">{{Hstoy.start_time*1000 + Hstoy.goods.xgdays*24*3600*1000 + "" | date:"yy-MM-dd"+" "+"hh:mm:ss"}}</span>
+          <div class="img_bar right" [ngClass]="{'success' : Hstoy.state == '1','nosuccess' : Hstoy.state == '2','successing' : Hstoy.state == '0'}" ></div>
+          <span class="right cfd4">需要<i>{{Hstoy.goods.supportnum}}</i>人支持</span>
+        </div>
+      </div>
+    </div>
+
+  </section>    
+</ion-content>   
+<div *ngIf='photoShow' class="photoBar" (click)="show()">
+
+</div>
+  <ul *ngIf='photoShowT' class="photoUla">    
+    <li text-center class="isTitle"><img [src]='profilePicture' class='imgTx'/>编辑头像</li>
+    <li text-center class="isBtnBar"><button class="btn" ion-button round (click)="toCamera()">拍摄照片</button></li>
+    <li text-center class="isBtnBar"><button class="btn" ion-button round (click)="toCholose()">用相册中的图片</button></li>
+  </ul>
+
+    <ul *ngIf='setPass' class="photoUl">    
+    <li text-center class="isTitle">修改密码</li>
+    <li text-center class="isBtnBar"><input type="password" class="btn" [(ngModel)]='old' maxlength="12" placeholder="初始密码"/></li>
+    <li text-center class="isBtnBar"><input type="password" class="btn" [(ngModel)]='newp' maxlength="12" placeholder='输新密码' /></li>
+    <li text-center class="isBtnBar"><input type="password" class="btn" [(ngModel)]='reNewp' maxlength="12" placeholder='重输密码' /></li>
+    <li text-center class="isBtnBar"><button class="btn btnPush" ion-button round (click)="pushPass()" [disabled]="!old||!reNewp||!newp||!(reNewp===newp)">确定</button></li>
+  </ul>

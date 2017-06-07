@@ -1,0 +1,184 @@
+answer5-page{
+   ion-header{
+    .toolbar{
+         .toolbar-background,
+    .toolbar-background-ios{
+         background-image: url("../assets/images/bg_top.jpg");
+        background-size:100% 100%;
+            border: none;
+    }
+      .button-inner{
+        color:#fff;
+      }
+      .back-button.show-back-button{
+      color:#fff;
+    }
+    .ion-ios-arrow-back:before {
+    content: "\f27d";
+}
+    }
+    &.header-md::after,&.header-ios::after{
+      background-image:none;
+    }
+    .toolbar-title{
+      color:#fff;
+    }
+
+    }
+    .btn_next{background:none;color:#fff;}
+    .back-button-icon-ios,.back-button-icon-md{color:#fff;}
+    .back-button-text{&.back-button-text-ios,&.back-button-text-md{color:transparent;}}
+  
+  .toolbar-title{
+    text-align: center;
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:4px #fd3f83;
+    &.toolbar-title-md{margin-left:-27px;}
+  }
+  .toolbar-title::after{ 
+    content:'拼团攻略';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:0;
+  }
+
+  ion-content{
+          background-image: url('../assets/images/bg_baby_06.jpg');
+      background-size:100%;
+      &.content-ios,
+      &.content-md{
+        //   background-color:#ffe7ed;
+          background-size:100%;
+      } 
+      .partner_bar{
+          margin:0;
+          padding:0;
+          height:1px; 
+          width:100%;
+          position:relative;
+          top:0;
+          left:0;
+          z-index: 2;
+     .top_bottom{
+         list-style: none;
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:9px;
+      background:url("../assets/images/border_top_img.png") no-repeat center;
+      background-repeat: repeat-x;
+      background-size:auto 100%;
+       }
+      }
+
+    
+ padding:10px;
+    .barBg{
+      width:100%;
+
+      .titleBar{
+      width: 100%;
+      height:44px;
+      &.marginTop{
+        padding-top:20px;
+        margin-bottom:25px;
+      }
+          .title-bar {
+          height: 4rem;
+          text-align: center;
+          color:#fd3f83;
+          position: relative;
+          font-size: 1.8rem;
+          line-height: 4rem;
+          &:after{
+            content: '';
+            display: inline-block;
+            width: 20%;
+            height: 100%;
+            position: absolute;
+            left: 25px;
+            top: 0;
+            z-index: 101;
+          }
+          &:before{
+            content: '';
+            display: inline-block;
+            width: 20%;
+            height: 100%;
+            position: absolute;
+            right: 25px;
+            top: 0;
+            z-index: 101;
+          }
+        }
+      }
+      .bgBarTop{
+        width:90%;
+        margin:auto;
+        height:10px;
+        margin-top:10px;
+        background: url("../assets/images/bg_red_title.png") no-repeat center bottom;
+        background-size:100% auto;
+        background-repeat: repeat-y;
+        
+      }
+      .bgBarCenter{
+        width:90%;
+        margin:auto;
+        margin-top:-1px; 
+        height:auto;
+        background: url("../assets/images/bg1_red_title.png") no-repeat center;
+        background-size:100% auto;
+        background-repeat: repeat-y;
+        p{
+          width:100%;
+          margin:0;
+          color:#fff;
+          font-size:1.2rem;
+          letter-spacing: 1px;
+          line-height: 26px;
+        }
+      }
+      .bgBarBotm{
+        width:90%;
+        margin:auto;
+        height:10px;
+          margin-top:-1px; 
+        background: url("../assets/images/bg_red_title.png") no-repeat center top;
+        background-size:100% auto;
+        background-repeat: repeat-y;
+      }
+      .bottom{
+        height:42px;
+        width:100%;
+      }
+
+    
+    
+   
+    
+
+    
+
+
+
+  
+  
+  
+  
+  
+  }
+
+
+  }
+}

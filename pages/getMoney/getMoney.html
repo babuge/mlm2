@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        我赚的米
+    </ion-title>
+  </ion-navbar> 
+</ion-header>
+ 
+<ion-content>
+  <section class="top-user-info">
+    <div class="img-icon"><img [src]="UserImg" /></div>
+    <p class="money_num">{{profitArr}}</p>
+    <p class='num-p'><span class="user-num" >当前收益（元）</span></p>
+     <h3 class='h3PdnTop'>温馨提示：加油加油，满100就可以提现了！</h3>
+    <div class='voidBg'></div><!--通知位，无空-->
+  </section>
+<section class='cont-info'>
+<ion-list>
+  <ion-row padding>
+    <ion-col width-30 padding><img class="imgWH" (click)="btnFnc(1)" src="assets/images/btn_4_03.png"/></ion-col>
+    <ion-col width-30 padding><img class="imgWH" (click)="btnFnc(2)" src="assets/images/btn_4_05.png"/></ion-col>
+    <ion-col width-30 padding><img class="imgWH" (click)="btnFnc(3)" src="assets/images/btn_4_07.png"/></ion-col>    
+  </ion-row>
+</ion-list>
+  
+</section>
+
+</ion-content>

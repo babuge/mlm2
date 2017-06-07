@@ -1,0 +1,191 @@
+addAdress-page{
+
+   ion-header{
+    .toolbar{
+         .toolbar-background,
+    .toolbar-background-ios{
+        background-image: url(../assets/images/bg_top_2.jpg);
+        background-size: 100%;
+    }
+      .button-inner{
+        color:#fff;
+      }
+          .back-button.show-back-button{
+      color:#fff;
+    }
+    .ion-ios-arrow-back:before {
+    content: "\f27d";
+}
+    }
+    &.header-md::after,&.header-ios::after{background-image:none;}
+    .toolbar-title{
+      color:#fff;
+    }
+    .btn_next{background:none;color:#fff;}
+        .back-button-icon-ios,.back-button-icon-md{color:#fff;}
+        .back-button-text{&.back-button-text-ios,&.back-button-text-md{color:transparent;}}
+  }
+  .toolbar-title{
+    text-align: center;
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:4px #fd3f83;
+    &.toolbar-title-md{margin-left:-27px;}
+  }
+  .toolbar-title::after{ 
+    content:'添加地址';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:0;
+  }
+
+
+  ion-content.contBg{
+    padding:5px;
+    padding-top:10px;
+    background-color:#eee;
+    background-size:100%;
+    height:100%;
+    ion-list{
+       background-color:#fff;
+    background-size:100%;
+    &.pdTop{
+      padding-top:20px;
+      padding-bottom:8px;  
+      margin-bottom:10px;    
+    }
+  .btn_deft{
+    color:#ff4431;
+  }
+  .btn_reset{
+    color:#777;
+  }
+  .bor_der{
+    border-top:1px solid #eee;
+    border-bottom:1px solid #ddd;
+    
+  }
+  .pd{
+    padding:0 10px;
+
+  }
+  .mgTop{
+    margin-top:10px;
+  }
+    }
+
+  .newaDr{
+
+    button{ background-color:#ff6a9e;}
+  }
+  
+
+
+
+
+/*address-page*/
+
+.contAddr{
+    position: absolute;
+    width:300px;
+    height:150px;
+    left:50%;
+    top:50%;
+    margin-left:-150px;
+    margin-top:-75px;
+    z-index: 21;
+        ul.addr-box{
+        width:100%;
+        height:100%;
+        padding:1px;
+        padding-top:14px;
+        background:url("../assets/images/input_frame.png") no-repeat center;
+        background-size:100% 100%;
+        margin:auto;
+        margin-top:5px;
+        background-color:transparent;
+        li{
+        list-style: none;
+        width:100%;
+        height:auto;
+        margin:auto;
+        margin-top:3px;
+        color:#4b4b4b;
+        padding:5px 20px ;
+        vertical-align: middle;
+        &.fristOneLi{
+            margin-top:10px;
+          }
+          .selectOne{
+              width:25%;
+              height:24px;
+              border:1px solid #b7b7b7;
+              box-shadow: 0 0 1px #e0e0e0 inset;
+              background-color:transparent ;
+              color:#888;
+          }
+          .selectTwo{
+              width:30%;
+              height:24px;
+              margin-left:4%;
+              border:1px solid #b7b7b7;
+              box-shadow: 0 0 1px #e0e0e0 inset;
+              background-color:transparent ;
+              color:#888;
+          }
+          .detilAddr{
+              width:59%;
+              height:24px;
+              border:1px solid #b7b7b7;
+              box-shadow: 0 0 1px #e0e0e0 inset;
+          }
+        }
+       
+         .addrBtn{
+        display: block;
+        width:30%;
+        border:2px solid #f41860;
+        border-radius:40px;
+        background-color:#ff4582;
+        font-size:18px;
+        color:#fff;
+        letter-spacing: 2px;
+        margin:auto;
+        margin-bottom: 3px;
+        outline: none;
+        }
+      }   
+  
+}
+
+ 
+
+ .photoBar{
+  position: fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index: 20;
+  background-color:rgba(86,0,30,0.3);  
+}
+
+
+
+
+
+
+  
+  }
+ 
+ 
+
+}

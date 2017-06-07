@@ -1,0 +1,297 @@
+my-homeS{
+  ion-content{
+      background-color:#ffcae6;
+      background-size:100% 100%;
+      .padnT5{
+      padding-top:5px;
+
+    }
+   ion-refresher {
+    background: linear-gradient(rgba(255,0,68,0.45),rgba(255,0,68,0.3), rgba(255,0,68,0));
+    .spinner-ios-circles,.spinner-md-circles{circle{fill:#fff;}}
+    // height: 40px;  
+    .refresher-pulling-text,
+    .refresher-refreshing-text{
+    font-size:12px;
+    color:#fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    }
+    .refresher-pulling-icon, 
+    .refresher-refreshing-icon{
+        color:#fff;
+    }
+  }
+  section.top-user-info{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color:#ff4990;
+    padding-top: 5px;
+    // background-image: url('../assets/images/bg_head.png');
+    background-color:#ffcae6;
+    background-size: auto 100%;
+    // h3{
+    //   margin: 10px 0;
+    // }
+    .h3PdnTop{
+      margin:0 auto;
+      margin-top: -8px;
+      margin-bottom:0px;
+    }
+    .img-icon {
+      width:100px;
+      height:100px;
+      margin: 10px auto 0 auto;
+      border-radius: 50%;
+      background: url('../assets/images/bg_tx.png');
+      background-size: 100%;
+      padding: 7px;
+      img{
+        border-radius: 50%;
+        border: 3px solid #fff;
+            height: 86px;
+          width: 86px;
+      }
+    }
+  
+    }
+    .text-lh-32{
+      line-height: 3.2rem;
+    }
+    .user-name {
+      display: block;
+      margin-top: 8px;
+      width:100%;
+      height: 10px;
+    }
+
+    .num-p{
+      padding:0;
+      margin:0 auto;
+      .user-num{
+      display: block;
+      margin: 18px auto auto;
+
+      font-size:1.4rem;
+      }
+    }
+    .noMargin{
+      margin-bottom:0;
+      padding-bottom:7px;
+    }
+    .money{
+      font-size: 2.5rem;
+    }
+    .voidBg{
+      position:relative;
+      bottom:-2px;
+      width:100%;
+      height:60px;
+      background:url('../assets/images/void_pg.png')no-repeat center bottom;
+      background-repeat:repeat-y;
+      background-size:auto 100%;
+     
+    }
+  }
+
+
+
+ section.cont-info{
+
+   .card-md,
+   .card-ios{
+     margin:12px 12px 4px 12px;
+     height:56px;
+     box-shadow:0 2px 2px 0 rgba(255, 202, 230, 0.28), 0 3px 1px -2px rgba(255, 202, 230, 0.4), 0 1px 5px 0 rgba(255, 202, 230, 0.24);
+   }
+   .label-ios,
+   .label-md{
+     h2{
+       color:#ff4990;
+     }
+   }
+  
+  //  详情
+   .ion-ios-mlm-userDet,
+   .ion-md-mlm-userDet{
+    margin-top: 4px;
+    margin-bottom: 1px;
+    min-width: 32px;
+    height: 30px;
+    font-size: 30px;
+    color: #8c8c8c;
+     background: url("../assets/images/mlm_mydata_19.png")no-repeat;
+     background-size:100%;
+   }
+     //系统消息
+   .ion-ios-mlm-messege,
+   .ion-md-mlm-messege{
+    margin-top: 4px;
+    margin-bottom: 1px;
+    min-width: 32px;
+    height: 30px;
+    font-size: 30px;
+    color: #8c8c8c;
+     background: url("../assets/images/mlm_mydata_17.png")no-repeat;
+     background-size:100%;
+   }
+  //  我的mm
+   .ion-ios-mlm-userMoney,
+   .ion-md-mlm-userMoney{
+    margin-top: 4px;
+    margin-bottom: 1px;
+    min-width: 32px;
+    height: 30px;
+    font-size: 30px;
+    color: #8c8c8c;
+     background: url("../assets/images/mlm_mydata_03.png")no-repeat;
+     background-size:100%;
+   }
+ 
+      //我的伙伴
+   .ion-ios-mlm-pattern,
+   .ion-md-mlm-pattern{
+    margin-top: 4px;
+    margin-bottom: 1px;
+    min-width: 32px;
+    height: 30px;
+    font-size: 30px;
+    color: #8c8c8c;
+     background: url("../assets/images/mlm_mydata_05.png")no-repeat;
+     background-size:100%;
+   }
+      
+     //help
+   .ion-ios-mlm-help,
+   .ion-md-mlm-help{
+    margin-top: 4px;
+    margin-bottom: 1px;
+    min-width: 32px;
+    height: 30px;
+    font-size: 30px;
+    color: #8c8c8c;
+     background: url("../assets/images/mlm_mydata_12.png")no-repeat;
+     background-size:100%;
+   }
+   //advise
+   .ion-ios-mlm-advise,
+   .ion-md-mlm-advise{
+    margin-top: 4px;
+    margin-bottom: 1px;
+    min-width: 32px;
+    height: 30px;
+    font-size: 30px;
+    color: #8c8c8c;
+     background: url("../assets/images/mlm_mydata_13.png")no-repeat;
+     background-size:100%;
+   }
+   .public_num{
+     font-size:1.4rem;
+     line-height: 3.9rem;
+   }
+    //版本
+   .ion-ios-mlm-publiction,
+   .ion-md-mlm-publiction{
+    margin-top: 4px;
+    margin-bottom: 1px;
+    min-width: 32px;
+    height: 30px;
+    font-size: 30px;
+    color: #8c8c8c;
+     background: url("../assets/images/mlm_mydata_15.png")no-repeat;
+     background-size:100%;
+   }
+   .item-md,
+   .item-ios{    
+     color:#ff747a;
+      .button-effect {
+      background-color: rgba(255, 3, 3, 0.8);
+      }
+   }
+   .mlm_item_show{
+      .item-inner{
+      border-bottom: 0.55px solid rgba(255, 0, 230, 0.1);
+      padding-top:3px;
+      }
+    .label-md,.label-ios{
+      padding-left: 10px;
+    }
+   }
+  .item-ios.activated,
+  .item-md.activated{
+    background-color:#ffdbdb;
+}
+.marginTop10{
+  margin-top:10px;
+  margin-bottom: 20px;
+  
+  .login{
+    box-shadow:none;
+    letter-spacing: 1px;
+    color:#bbb;
+  }
+}
+
+ }
+
+      .hr-img {
+      box-sizing: content-box;
+      height: 1.8rem;
+      width: 100%;
+      position: absolute;
+      top: -25px;
+      z-index: 101;
+      background: url('../assets/images/b1.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+      text-align: center;
+      padding: 15px 0;
+      color: #ff747a;
+      img{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      span{
+        display: inline-block;
+        font-size: 1.8rem;
+        position: absolute;
+        width: 100px;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      &::after{
+        content: '';
+        display: inline-block;
+        width:25%;
+        height:100%;
+        background:url(../assets/images/h1_deractionR.png);
+        background-size:100%;
+        background-position-y: 50%;
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 25px;
+        top: 0;
+        z-index:101;
+      }
+      &::before{
+        content: '';
+        display: inline-block;
+        width:25%;
+        height:100%;
+        background:url(../assets/images/h1_deractionL.png);
+        background-size:100%;
+        background-position-y: 50%;
+        background-repeat: no-repeat;
+        position: absolute;
+        left:25px;
+        top: 0;
+        z-index:101;
+      }
+    }
+
+  }

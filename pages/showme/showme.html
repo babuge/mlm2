@@ -1,0 +1,38 @@
+<!--
+  Generated template for the Showme page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>谁看了我</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!--<ion-img class="info-img" src="assets/images/bg_head.png"></ion-img>-->
+  <div class="showme-infos">
+    <p>访客总数：<span>{{looks.lookstotal}}</span>人</p>
+    <p>今日访客：<span>{{looks.todaytotal}}</span>人</p>
+  </div>
+  <div class="title-bar">看过我的</div>
+  <ul class='ulBar' >
+    <li *ngFor="let lookd of looked"><span class="name" >{{lookd.nikname}}</span><span class="timer">{{lookd.addtime|slice: 8:20}}</span></li>
+  </ul>
+  <button class="add" (click)="toInvit()">继续邀请好友</button>
+  <div class="drawer" (click)="showTab(1)">
+    <span class="icon-plus" ></span>
+    <span class="text-stroke-4 ce1bbb" data-name="昨日">昨日</span>
+  </div>
+  <ul *ngIf="showFirst" class='ulBar'>
+    <li *ngFor="let yesday of lookedY"><span class="name">{{yesday.nikname}}</span><span class="timer">{{yesday.addtime|slice: 8:20}}</span></li>
+  </ul>
+  <div class="drawer bgColr" (click)="showTab(2)">
+    <span class="icon-plus"  ></span>
+    <span class="text-stroke-4 ce1bbb" data-name="全部">全部</span>
+  </div>
+  <ul *ngIf="showSecond" class='ulBar'>
+    <li *ngFor="let allday of lookedAll"><span class="name">{{allday.nikname}}</span><span class="timer">{{allday.addtime|slice: 8:20}}</span></li>
+  </ul>
+
+</ion-content>

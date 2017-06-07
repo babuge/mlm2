@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        提现记录
+    </ion-title>
+  </ion-navbar> 
+</ion-header>
+ 
+<ion-content>
+<ion-refresher (ionRefresh)="doRefresh($event)" refreshing-icon="bubbles">
+<!--refreshing-icon=""-->
+<ion-refresher-content  [refreshingText]="refreshTxt"
+pullingIcon="arrow-dropdown"
+pullingText="释放刷新"
+refreshingSpinner="circles"
+refreshingColor='red'
+></ion-refresher-content>
+</ion-refresher>
+<ul class="ul_bar" *ngFor='let item of hosit'>
+    <li class="float-left frist">{{item.addtime*1000|date:'yy-MM-dd'+" "+'hh:mm:ss'}}</li>
+    <li class="float-left end">{{item.state=='0' ? '申请提现':'提现成功'}} <span>100</span></li>
+</ul>
+</ion-content>

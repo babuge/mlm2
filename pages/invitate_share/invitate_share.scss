@@ -1,0 +1,401 @@
+Share-page{
+    ion-header{
+    .toolbar{
+         .toolbar-background,
+    .toolbar-background-ios{
+         background-image: url("../assets/images/bg_top.jpg");
+        background-size:100% 100%;
+    }
+      .button-inner{
+        color:#fff;
+      }
+      .back-button.show-back-button{
+      color:#fff;
+    }
+    .ion-ios-arrow-back:before {
+    content: "\f27d";
+}
+    }
+    &.header-md::after,&.header-ios::after{background-image:none;}
+    .toolbar-title{
+      color:#fff;
+    }
+    .btn_next{background:none;color:#fff;}
+        .back-button-icon-ios,.back-button-icon-md{color:#fff;}
+        .back-button-text{&.back-button-text-ios,&.back-button-text-md{color:transparent;}}
+  }
+  .toolbar-title{
+    text-align: center;
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:4px #fd3f83;
+    &.toolbar-title-md{margin-left:-32px;}
+  }
+  .toolbar-title::after{ 
+    content:'邀请好友';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:0;
+  }
+
+  ion-content{
+    padding:10px;
+    .pictureBar{
+    &::before{
+      content: "点击查看图片";
+      display: block;
+      width:100%;
+      text-align: center;
+      height:32px;
+      line-height:32px;
+      background-color:rgba(0,0,0,0.7);
+      position: absolute;
+      bottom:0;
+      left:0;
+      color:#fff;
+      letter-spacing: 1px;
+    }
+    position:relative;
+    width:300px;
+    margin:auto;
+    height:250px;
+    border:1px solid rgba(255,0,50,0.2);
+    overflow: hidden;
+    img{
+      width:100%;
+      height:auto;
+    }
+    }
+    .barBg{
+      width:100%;
+      background-image: url('../assets/images/bg_baby_06.jpg');
+      background-size:100% auto;
+      .titleBar{
+      width: 100%;
+      height:44px;
+          .title-bar {
+          height: 4rem;
+          text-align: center;
+          color:#fd3f83;
+          position: relative;
+          font-size: 1.8rem;
+          line-height: 4rem;
+          &:after{
+            content: '';
+            display: inline-block;
+            width: 23%;
+            height: 100%;
+            background: url('../assets/images/title_pink_left.png');
+            background-size: 100%;
+            background-position-y: 50%;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 25px;
+            top: 0;
+            z-index: 101;
+          }
+          &:before{
+            content: '';
+            display: inline-block;
+            width: 23%;
+            height: 100%;
+            background: url('../assets/images/title_pink_right.png');
+            background-size: 100%;
+            background-position-y: 50%;
+            background-repeat: no-repeat;
+            position: absolute;
+            right: 25px;
+            top: 0;
+            z-index: 101;
+          }
+        }
+      }
+      .bgBarTop{
+        width:90%;
+        margin:auto;
+        height:10px;
+        margin-top:10px;
+        background: url("../assets/images/bg_red_title.png") no-repeat center bottom;
+        background-size:100% auto;
+        background-repeat: repeat-y;
+        
+      }
+      .bgBarCenter{
+        width:90%;
+        margin:auto;
+        margin-top:-1px; 
+        height:auto;
+        background: url("../assets/images/bg1_red_title.png") no-repeat center;
+        background-size:100% auto;
+        background-repeat: repeat-y;
+        padding:0 5px;
+        height: 120px;
+        // p{
+        //   width:100%;
+        //   margin:0;
+        //   color:#fff;
+        //   font-size:1.6rem;
+        //   letter-spacing: 1px;
+        //   text-indent: 2rem;
+        //   line-height: 26px;
+        // }
+        // ion-list{
+        //   padding:0 5px;
+  
+          .colOne{
+            float:left;
+            width:30%;
+            height:110px;
+          img{
+            width:auto;
+            height:110px;
+          }}
+          .colTwo{
+            width:70%;
+            float:left;
+            padding:5px;
+            .txtBarH5{
+              width:100%;
+              height:24px;
+              font-size:2rem;
+              color:#fff;
+              margin:0;
+              overflow: hidden;
+            }
+            .PriTxtBar{
+              padding-top:10px;
+              font-size:1.2rem;
+              color:#fff;
+              line-height: 3rem;
+              .price{
+                font-size:2.4rem;
+              }
+            }
+            .txtBar{
+              font-size:1.6rem;
+              color:#fff;
+            }
+          }
+        // }
+      }
+      .bgBarBotm{
+        width:90%;
+        margin:auto;
+        height:10px;
+          margin-top:-1px; 
+        background: url("../assets/images/bg_red_title.png") no-repeat center top;
+        background-size:100% auto;
+        background-repeat: repeat-y;
+      }
+      .bottom{
+        height:42px;
+        width:100%;
+      }
+      section.secrete_bar{
+         width:90%;
+         margin:auto;
+         margin-top:46px;
+         position:relative;
+         background-color:rgba(254,96,143,0.2); 
+         .title_head{
+           position:absolute;
+           width:100%;
+           text-align:center;
+            color: #ff5992;
+            font-size: 20px;
+            -webkit-text-stroke:4px #fff;
+            top:-18px;
+            
+           &:after{
+               content:'你的秘密';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                color: #ff5992;
+                font-size: 20px;
+                -webkit-text-stroke:0;
+           }
+         } 
+         .secrete_ul{
+            
+           margin:0;
+           color:#ff5992;
+           padding:15px 20px 15px 10px ; 
+           margin-top:30px;
+           li{
+             width:100%;
+             color:#ff5992;
+             font-size:1.4rem;
+             line-height: 2.4rem;
+             list-style: none;
+             span.to_right{
+               float:right;
+             }
+           }
+         }
+
+
+
+
+      }
+      .btn_bar{
+        background-color:transparent;
+        .item-ios,.item-md{
+        background-color:transparent;
+        border:none;          
+        } 
+        .btn_bdr{
+          
+          background-color: #ff71a2;
+        &.button-full-ios,
+        &.button-full-md{
+          letter-spacing: 1px;
+          height:36px;
+          border-radius: 36px;
+          border:1px solid #eb6996;
+        }
+
+
+
+        }
+      }
+
+    }
+
+  
+  }
+  ul.picture_box{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:0 15%;
+    z-index: 150;
+    padding-top:20px;
+    background-color:rgba(0,0,0,0.5);
+    li{
+      width:100%;
+      height:auto;   
+      margin:auto;
+      margin-top:69px;   
+      img{
+        width:100%;
+        height:100%;        
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+}
+ .ion-md-share {
+    color: #ED4248;
+  }
+  .ion-md-mlm-qq:before,
+  .ion-ios-mlm-qq:before{
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url('../assets/icon/mlm-qq.png') no-repeat center;
+    background-size: 100% auto;
+    }
+  .ion-md-mlm-chart:before,
+  .ion-ios-mlm-chart:before{
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url('../assets/icon/web-chart.png') no-repeat center;
+    background-size: 100% auto;
+    }    
+  .action-sheet-cancel ion-icon,
+  .action-sheet-destructive ion-icon {
+    color: #757575;
+  }
+  .action-sheet-ios,.action-sheet-md{
+        .action-sheet-button{
+          width:50%;
+        }
+  } 
+  .action-sheet-group{
+    .btnClose{
+        width:100%;
+        text-align: center;
+        .button-inner{
+          text-align: center;
+          webkit-justify-content:center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          color:#757575;
+        }
+      }
+      .btnCart{
+        color:#757575;
+      }
+      .btnQq{
+        color:#757575;
+      }
+  }
+  .alert-button-group{
+    display: inline-block;
+    .altSave{
+      color:#757575;
+      width: 100%;
+        .button-inner{
+          text-align:left;
+          -ms-flex-pack:flex-start;
+          justify-content: flex-start;
+          color:#757575;
+        }
+    }
+    .altSavea{
+      height:auto;
+      color:#757575;
+      width: 100%;
+        .button-inner{
+          text-align:left;
+          word-break: break-all;
+          -ms-flex-pack:flex-start;
+          justify-content: flex-start;
+          color:#757575;
+        }
+    }
+  }
+  .alert-md,.alert-ios{.alert-head{
+    padding:0;
+  }}  
+
+  .alertas{
+    width:100%;
+    height:auto;
+    color:#fff;
+    text-indent: 10px;
+    word-break: break-all;
+    .alert-wrapper{
+      padding:5px;
+      background-color:#333;
+    }
+  }

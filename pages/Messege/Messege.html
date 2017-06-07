@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+       系统消息
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="barBg">
+
+  <ion-list class="listTop">
+    <ul  *ngFor="let item of news;let i=index;" (click)="goNext(i,item.title,item.content,item.addtime)">
+      <li class="messege">{{item.title}}</li><li class="timer">{{item.addtime* 1000 | date:'yy-MM-dd'}}</li>
+    </ul>
+  </ion-list>
+
+</ion-content>   

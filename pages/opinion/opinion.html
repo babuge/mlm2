@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+       意见反馈
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ul class="txtBar">
+        <li class="fristLi"><textarea placeholder="请留下宝贵意见..." maxlength="200" [(ngModel)]="texts"></textarea></li>        
+    </ul>
+    <button class="btn" [disabled]="!texts" (click)="submite()">提交</button>
+  
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        提现
+    </ion-title>
+  </ion-navbar> 
+</ion-header>
+ 
+<ion-content>
+    <ul class="MTB_bar" *ngIf="bankShow">
+        <li class="fristLi"><div class="Card_bar float-left">银行卡</div><div class="bankCard_code float-left">{{BankInfo.banktype}} {{"("+BankInfo.banknum+")"}}</div></li>
+        <li class="fristLi"><div class="tixian">提现</div></li>
+        <li class="moneyBar">￥ <input class="card_int" type="number" maxlength="8" [(ngModel)]="MoneyNum"/></li>
+        <li class="lastLi"><div class="tips">提现金额须为100的倍数,可用余额{{porfit}}</div></li>
+        <button class="btn" [disabled]="!(MoneyNum%100===0)" (click)="ToBank()">提现</button>    
+    </ul>
+    <!--弹出-->
+    <div class="errorFor" *ngIf='showEmg'>{{emassege}}</div>
+
+
+</ion-content>

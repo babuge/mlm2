@@ -1,0 +1,29 @@
+<ion-content>
+<ul class="ulPass">
+    <li class="logo_bar"><div class="dect_bar"><img [src]="imgSrc"/></div></li>
+    <li>
+      <ion-icon name="ios-phone-portrait-outline" class="iconColr"></ion-icon> 
+      <input type="number" [(ngModel)]="phone" maxlength="11" class="int" placeholder="手机号"/>
+    </li>
+    <li>
+        <div class="float-left">
+            <ion-icon name="md-lock" class="iconColr"></ion-icon>
+        </div>
+        <div class="float-left">
+        <input type="password" [(ngModel)]="passWord" maxlength="11" class="int" placeholder="密码"/>
+        </div>
+    </li>
+    <li>
+        <div class="float-left">
+            <ion-icon name="md-lock" class="iconColr"></ion-icon>
+        </div>
+        <div class="float-left">
+        <input type="password" [(ngModel)]="repassWord" maxlength="11" class="int" placeholder="确认密码"/>
+        </div>
+    </li>    
+    <li class="btn_bar"><button class="btn" [disabled]="!phone||!passWord||!(passWord===repassWord)" (click)="submite(phone,passWord)">注册</button></li>
+    <li class="goResige"><div class="reg_btn " (click)="goLog()">已有账号，登录</div></li>    
+</ul>      
+<div class="alert" *ngIf="altShow"></div>
+
+</ion-content>

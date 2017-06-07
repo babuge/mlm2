@@ -1,0 +1,233 @@
+bankCardChg-page{
+    ion-header{
+    .toolbar{
+         .toolbar-background,
+    .toolbar-background-ios{
+         background-image: url("../assets/images/bg_top.jpg");
+        background-size:100% 100%;
+            border: none;
+    }
+      .button-inner{
+        color:#fff;
+      }
+      .back-button.show-back-button{
+      color:#fff;
+    }
+    .ion-ios-arrow-back:before {
+    content: "\f27d";
+}
+    }
+    &.header-md::after,&.header-ios::after{
+      background-image:none;
+    }
+    .toolbar-title{
+      color:#fff;
+    }
+
+    }
+    .btn_next{background:none;color:#fff;}
+    .back-button-icon-ios,.back-button-icon-md{color:#fff;}
+    .back-button-text{&.back-button-text-ios,&.back-button-text-md{color:transparent;}}
+  
+  .toolbar-title{
+    text-align: center;
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:4px #fd3f83;
+    &.toolbar-title-md{margin-left:-32px;}
+  }
+  .toolbar-title::after{ 
+    content:'绑定银行卡';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke:0;
+  }
+
+  ion-content{
+      &.content-ios,
+      &.content-md{
+          background-color:#f7f7f7;
+          background-size:100%;      
+      } 
+      .errorFor{
+        position:fixed;
+        top:60%;
+        left:50%;
+        width:120px;
+        height:30px;
+        padding:0 10px;
+        line-height:30px;
+        color:#fff;
+        margin-left:-60px;
+        text-align:center;
+        background-color:rgba(0,0,0,0.5);
+        border-radius: 5px;
+        z-index:300;
+    }
+      .partner_bar{
+          margin:0;
+          padding:0;
+          height:1px;
+          width:100%;
+          position:relative;
+          top:0;
+          left:0;
+          z-index: 2;
+     .top_bottom{
+         list-style: none;
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:9px;
+      background:url("../assets/images/border_top_img.png") no-repeat center;
+      background-repeat: repeat-x;
+      background-size:auto 100%;
+       }
+      }
+      .nameTxt{
+          font-size:1.4rem;
+          color:#fe7ca9;
+          margin-top:25px;
+      }
+      ul.fromBox{
+          min-width:296px;
+          margin:12px 4.5%;
+          padding:0;
+          height:36px;
+          box-shadow: 0px 2px 2px #c4c5c7;
+          border-radius: 3px;
+          &:active{box-shadow: none;}
+          li{
+              list-style: none;
+              margin:0;
+              padding:0;              
+              font-size:1.6rem;
+              line-height:36px;              
+          }
+          .fristLi{
+              width:32%;
+              height:36px;
+              color:#f24581;
+              float: left;
+              text-align:center;
+
+          }
+          .endLi{
+              width:68%;
+              height:36px;
+              color:#b5b5b5;
+              float: left;
+              border-left:1px solid #e7e7e7;
+            .listBank{
+                  width:100%;
+                  height:36px;
+                  background-color:transparent;
+               select.selectBar{
+                    margin:0;
+                    padding:0;
+                    height:36px;
+                    min-width:100%;
+                    max-width:100%;
+                    border:none;
+                    background-color:transparent;
+                    option{
+                        position:absolute;
+                        width:100%;
+                        height:36px;
+                        margin:auto;
+                        padding:0;
+                        border:none;
+                        background-color:transparent;
+                        border:none;
+                    }
+
+                  }
+
+              }
+              
+          
+          }
+      }
+       ul.fromBoxa{
+          min-width:296px;
+          margin:12px 4.5%;
+          padding:0;
+          height:36px;
+          box-shadow: 0px 2px 2px #c4c5c7;
+          border-radius: 3px;
+          li{
+              list-style: none;
+              margin:0;
+              padding:0;      
+              height:36px;        
+              font-size:1.6rem;
+              line-height:36px;
+              float: left;
+              input{
+                  margin:0;
+                  padding:0;
+                  width:100%;
+                  height:36px;
+                  border:none;
+                  text-indent: 10px;
+                  color:#777;
+                  background-color:transparent;
+                   border-left:1px solid #e7e7e7;
+                   line-height: 36px;
+              }              
+          }
+          .fristLi{
+              width:32%;
+              color:#f24581;
+              text-align:center;
+
+          }
+          .endLi{
+              width:68%;  
+              color:#b5b5b5;
+              text-indent: 15px;
+              border-left:1px solid #e7e7e7;
+
+      }}
+      .selectBtn{
+          display:block;
+          width:120px;
+          height:38px;
+          margin:15px auto auto;
+          background-color:#fe4b8d;
+          color:#fff;
+          font-size:1.6rem;
+          letter-spacing: 2px;  
+      }
+
+
+
+  
+  
+  
+  
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

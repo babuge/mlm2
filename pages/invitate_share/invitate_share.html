@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        邀请好友
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="barBg">
+    <div class="titleBar"><div class="title-bar">邀请生成图片</div></div>
+    <div class="pictureBar"><img (click)="showImg()" [src]='shareImg' /></div>
+    <div class="titleBar"><div class="title-bar">需要支持的宝贝</div></div>
+    <div class="bgBarTop"></div>
+    <div class="bgBarCenter" *ngIf="showPting">  
+          <div class="colOne">
+            <img [src]='wwwName+ptInfo.goodstotal.imgpath' alt='' />
+            </div>
+          <div class="colTwo" > 
+            <h5 class="txtBarH5" >{{ptInfo.goods.name}}</h5>
+            <div  class="txtBar" >{{ptInfo.goodstatal.attname}}</div>
+            <div  class="PriTxtBar" text-center>市场价 <span class="price">￥ {{ptInfo.goods.price}}</span></div>
+            <div  class="txtBar" text-center>需要支持数{{ptInfo.count}}人</div>
+          </div>
+      <!--<P padding>超过成团有效期24小时，未达成相应参团人数的团，则该团失败。</P>-->
+    </div>
+
+    <section class="secrete_bar">
+        <div class="title_head">你的秘密</div>
+        <ul class="secrete_ul" *ngIf="showQust">
+          <li *ngFor="let qst of qust;let i=index">{{(i+1)+"、"+qst.question.questions}}<span class="to_right">答:{{qst.answers}}</span></li>
+        </ul>
+    </section>
+    <ion-list class="btn_bar">
+      <ion-item>
+        <ion-row>
+          <ion-col width-40><button ion-button full class="btn_bdr" (click)="reSet()">重新设置</button></ion-col>
+          <ion-col width-20></ion-col>
+          <ion-col width-40><button ion-button full class="btn_bdr" (click)="goEnd()">去分享</button></ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+    <div class="bottom"></div>
+  </div>
+</ion-content> 
+<ul class="picture_box" (click)="showImg()" *ngIf="showImgs">
+  <li (touchend)="pressFnT($event)"><img [src]='shareImg'  (touchstart)="pressFnO($event)"/></li>
+</ul>   

@@ -1,0 +1,85 @@
+<ion-content>
+          <ion-refresher (ionRefresh)="doRefresh($event)" refreshing-icon="bubbles">
+        <!--refreshing-icon=""-->
+    <ion-refresher-content  [refreshingText]="refreshTxt"
+     pullingIcon="arrow-dropdown"
+      pullingText="释放刷新"
+      refreshingSpinner="circles"
+      refreshingColor='red'
+    ></ion-refresher-content>
+  </ion-refresher>
+  <section class="top-user-info">
+    <div class="img-icon"><img  [src]="UserImg" /></div>
+    <h3 class='h3PdnTop'><span class="user-name text-stroke-4" [attr.data-name]='Users.username'>{{Users.username}}</span></h3>
+    <p class='num-p'><span class="user-num" >账号：{{Users.phone}}</span></p>
+    <div class='voidBg'></div><!--通知位，无空-->
+  </section>
+<section class='cont-info'>
+
+  <ion-card>
+    <ion-item (click)='onfrist()'>
+      <ion-icon  name="mlm-userDet" item-left large></ion-icon>
+      <h2>个人资料</h2>
+      <ion-icon name='ios-arrow-forward-outline' item-right large></ion-icon>
+      <!--ios-arrow-up-outline-->
+    </ion-item> 
+  </ion-card>
+
+  <ion-card>
+    <ion-item (click)='onSecond()'>
+      <ion-icon  name="mlm-messege" item-left large></ion-icon>
+      <h2>系统消息</h2>
+      <ion-icon  name='ios-arrow-forward-outline' item-right large></ion-icon>
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-item (click)='onThrid()'>
+      <ion-icon name="mlm-userMoney" item-left large></ion-icon>
+      <h2>我赚的米</h2>  
+      <ion-icon  name='ios-arrow-forward-outline' item-right large></ion-icon>
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-item (click)='onFourth()'>
+      <ion-icon name="mlm-pattern" item-left large></ion-icon>
+      <h2>我的人脉</h2>
+      <ion-icon  name='ios-arrow-forward-outline'  item-right large></ion-icon>
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-item (click)='onFifth()'>
+      <ion-icon name="mlm-help" item-left large></ion-icon>
+      <h2>米拉米攻略</h2>
+      <ion-icon  name='ios-arrow-forward-outline'  item-right large></ion-icon>
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-item (click)='onSixth()'>
+      <ion-icon name="mlm-advise" item-left large></ion-icon>
+      <h2>意见反馈</h2>
+      <ion-icon  name='ios-arrow-forward-outline'  item-right large></ion-icon>
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-item (click)='onHighth()'>
+      <ion-icon name="mlm-publiction" item-left large></ion-icon>
+      <h2>当前版本</h2>
+      <ion-icon  item-right large class="public_num">1.0.0.0</ion-icon>
+    </ion-item>
+  </ion-card>
+  <div class="marginTop10">
+    <button ion-button  full class="login" color="light" (click)="Logout()">退出登录</button>
+  </div>
+</section>
+
+</ion-content>

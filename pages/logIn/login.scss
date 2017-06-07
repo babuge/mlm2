@@ -1,0 +1,126 @@
+Login-page{
+
+  ion-content{
+    background-image: url('../assets/images/reg_log_bg.jpg');
+      background-size:100%;
+      &.content-ios,
+      &.content-md{
+        //   background-color:#ffe7ed;
+          background-size:100%;
+      } 
+      ul.ulPass{
+          position:absolute;
+          width:92%;
+          height:130px;
+          left:4%;
+          top:50%;
+          margin-top:-180px;
+          padding:0;
+          background-color:transparent;
+          .logo_bar{
+              width:100px;
+              height:100px;
+              margin:auto auto 50px;
+              background-color:transparent;
+              border-radius: 100px;
+            .dect_bar{
+                border-radius: 100px;
+                height: 100px;
+                max-width: 100%;
+                vertical-align: bottom;
+                background: #eee;
+                
+                contain: strict;
+                img{
+                border-radius: 100px;
+                display: block;
+                object-fit: cover;
+                height: 100px;
+                max-width: 100%;
+                border:2px solid #fe6090;
+                }
+            }
+              
+          }
+          li{
+              position:relative;
+              top:0;
+              left:0;
+              list-style: none;
+              border-bottom:1px solid #ff828c;
+              margin-top:8px;
+              width:100%;
+              height:36px;
+              font-size:1.4rem;
+              line-height:36px;
+              ion-icon{
+                  position:absolute;
+                  top:2px;
+                  left:2px;
+                  width:36px;
+                  height:36px;
+                  color:#ff828c;
+                  line-height:36px;
+                  background-color:transparent;
+                  border:none;
+                  
+                  
+              }
+              .ion-md-lock:before,.ion-ios-phone-portrait-outline:before{
+                      font-size:24px;
+                      color:#ff828c;
+                      text-align:center;
+                      
+                  }
+              .int{
+                  width:100%;
+                  height:36px;
+                  border:0;
+                  background-color:transparent;
+                  max-height:36px;
+                  text-indent: 25px;
+                  color:#ff5689;
+              }
+           &.btn_bar{
+               padding:0;
+               margin-top:15px;
+               width:100%;
+               height:38px;
+               border:none;
+              .btn{
+              width:100%;
+              height:38px;
+              background-color:#fe7ca9;
+              color:#fff;
+              border:none;
+              border-radius:4px;
+              margin:auto;
+          }
+           }
+           &.goResige{
+               border:0;
+               width:100%;
+               height:34px;
+               position: relative;
+               top:0;
+               left:0;
+               .reg_btn{
+                   width:100px;
+                   height:34px;
+                   text-align: right;
+                   color:#fe7ca9;
+                   line-height:34px;
+                   position:absolute;
+                   right:0;
+                   top:0;
+                   padding-right:12px;
+                   letter-spacing:1px;
+               }
+           }                 
+              
+          }
+          
+          
+      }
+  }
+}

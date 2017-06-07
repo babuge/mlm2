@@ -1,0 +1,48 @@
+<!--头-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>谁支持了我</ion-title>
+  </ion-navbar>
+</ion-header>
+<!--内容-->
+<ion-content>
+  <div class="showme-infos">
+    <p>访客总数：<span>{{looks.supportTotal}}</span>人</p>
+    <p>今日访客：<span>{{looks.todayTotal}}</span>人</p>
+  </div>
+  <div class="title-bar">支持我的</div>
+  <div class="hr"></div>
+  <div class="row" *ngFor="let lokone of looked">
+    <div class="imagebox" *ngFor="let lokse of lokone">
+    <img [src]="wwwName+lokse.user.porfile" alt="" class="img">
+    <span class="name">{{lokse.user.username}}</span>
+    </div>
+  </div>
+   
+  <button class="add" (click)="toInvit()">继续邀请好友</button>
+  <div class="drawer"  (click)="showTab(1)">
+    <span [ngClass]="{'icon-plus':showFirst==false,'icon-pluso':showFirst==true}"></span>
+    <span class="text-stroke-4 ce1bbb" data-name="昨日">昨日</span>
+  </div>
+  <span *ngIf='showFirst'>
+  <div class="row" *ngFor="let lokta of lookedY">
+    <div class="imagebox" *ngFor="let lokwa of lokta">
+    <img [src]="wwwName+lokwa.user.porfile" alt="" class="img">
+    <span class="name">{{lokwa.user.username}}</span>
+    </div>
+  </div>
+ </span>
+
+  <div class="drawer " (click)="showTab(2)" >
+    <span [ngClass]="{'icon-plus':showSecond==false,'icon-pluso':showSecond==true}" ></span>
+    <span class="text-stroke-4 ce1bbb" data-name="全部">全部</span>
+  </div>
+  <span *ngIf='showSecond'>
+  <div class="row" *ngFor="let lokY of lookedAll" >
+      <div class="imagebox" *ngFor="let lokza of lokY">
+      <img [src]="wwwName+lokza.user.porfile" alt="" class="img">
+      <span class="name">{{lokza.user.username}}</span>
+      </div>
+  </div>  
+  </span>
+</ion-content>
