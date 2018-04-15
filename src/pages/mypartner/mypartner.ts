@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
-// import { HomeModel } from '../../model/Home-model';
+// import { unitHttp } from '../../model/unitHttp';
 // import { StorageService } from '../../providers/storageService';
 
 

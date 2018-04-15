@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController,NavParams,AlertController} from 'ionic-angular';
-import { HomeModel } from '../../model/Home-model';
+import { unitHttp } from '../../model/unitHttp';
 import { StorageService } from '../../providers/storageService';
-import { Camera } from 'ionic-native';
-import { Transfer } from 'ionic-native';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
 // import { FileUploadOptions } from 'ionic-native';
 import {AdressPage} from '../../pages/addAdress/addAdress';
 import {GoodsinfoPage} from '../../pages/goodsinfo/goodsinfo';
@@ -12,23 +12,25 @@ import {GoodsinfoPage} from '../../pages/goodsinfo/goodsinfo';
   templateUrl: 'myData.html'
 })
 export class MyDataPage {
-    public UserImg:string='assets/images/logo.png';Hosi=[];wwwName:string='http://www.363app.com';
+    public UserImg:string='assets/images/logo.png';Hosi=[];
     public photoShow:boolean=false;photoShowT:boolean=false;profilePicture: any="assets/images/logo.png";
       public path:string;userId;setPass:boolean;old:string;newp:string;reNewp:string;userName:string;phone:string;
-    constructor(public navCtr:NavController,public params:NavParams,public alertCtr:AlertController,public storage:StorageService,public homemodel:HomeModel){
+    constructor(public navCtr:NavController,public params:NavParams,public alertCtr:AlertController,
+      public storage:StorageService,public unithttp:unitHttp,private camera: Camera,
+      private transfer: FileTransfer){
 
       // {User:this.Users,UserImg:this.UserImg}
     }
       ionViewDidLoad(){
-      this.UserImg=this.wwwName+this.storage.read('UserImg');
+      this.UserImg=this.unithttp.getIp().images+this.storage.read('UserImg');
       this.profilePicture=this.UserImg;
       this.userId=this.storage.read('UserId');
       this.userName=""+this.storage.read("UserName");
       this.phone=''+this.storage.read("UserPhone");
       console.log(this.userName);
-      let urls=this.wwwName+'/Api/SpellTeam/teamRecord';
+      let urls=this.unithttp.getIp().code+'/Api/SpellTeam/teamRecord';
       let data={'uid':this.userId}
-       this.homemodel.postHome(urls,JSON.stringify(data),(res)=>{ 
+       this.unithttp.post(urls,JSON.stringify(data),(res)=>{ 
    if(res==='PROERROR'){
       console.log(res)
       return;
@@ -91,20 +93,18 @@ export class MyDataPage {
      //to testpage
 
      toCholose(){
-         var options = {
-      // Some common settings are 20, 50, and 100
-      quality: 50,
-      destinationType: Camera.DestinationType.FILE_URI,
-      // In this app, dynamically set the picture source, Camera or photo gallery
-      sourceType:0,//0对应的值为PHOTOLIBRARY ，即打开相册
-      encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 400,                                        //照片宽度
-      targetHeight: 400, 
-      mediaType: Camera.MediaType.PICTURE,
-      // allowEdit: true,
-      correctOrientation: true  //Corrects Android orientation quirks
-    }
-    Camera.getPicture(options).then((imageData) => {
+      const options: CameraOptions = {
+        quality: 100,
+        sourceType:0,//0对应的值为PHOTOLIBRARY ，即打开相册
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        targetWidth: 400,                                        //照片宽度
+        targetHeight: 400, 
+        // allowEdit: true,
+        correctOrientation: true  //Corrects Android orientation quirks
+      }
+    this.camera.getPicture(options).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
       let base64Image =  imageData;
@@ -123,22 +123,22 @@ export class MyDataPage {
      var options = {
       // Some common settings are 20, 50, and 100
       quality: 50,
-      destinationType: Camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.FILE_URI,
       // In this app, dynamically set the picture source, Camera or photo gallery
 
-      encodingType: Camera.EncodingType.JPEG,
-      mediaType: Camera.MediaType.PICTURE,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
       targetWidth: 400,                                        //照片宽度
       targetHeight: 400, 
       saveToPhotoAlbum:true,
-      sourceType:Camera.PictureSourceType.CAMERA,//拍照时，此参数必须有，否则拍照之后报错，照片不能保存
+      sourceType:this.camera.PictureSourceType.CAMERA,//拍照时，此参数必须有，否则拍照之后报错，照片不能保存
       allowEdit: false,
       correctOrientation: true  //Corrects Android orientation quirks
     }
     /**
      * imageData就是照片的路径，关于这个imageData还有一些细微的用法，可以参考官方的文档。
      */
-    Camera.getPicture(options).then((imageData) => {
+    this.camera.getPicture(options).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
       let base64Image =  imageData;
@@ -154,31 +154,30 @@ export class MyDataPage {
 
   
   login() {
-    const fileTransfer = new Transfer();
-    /*** 上传文件时携带参数，这个是可选项。 */
-    var options: any;
-    options = {
-      fileKey: 'file',
-      fileName: 'name.jpg',
-      headers: {}
-  }
-    var reqUri = "http://363app.com/Api/User/upload/uid/"+this.userId;
-    //第一个参数是文件的路径，第二个参数是服务器的url，第二个参数也可以是encodeURI(reqUri)
-    fileTransfer.upload(this.path, reqUri, options).then((data:any) => {
-          this.photoShow=false;
-          this.photoShowT=false;
-          if(data=="ERROR"){
-            console.log(data.response);
-          }else if(data=="PROERROR"){
-             console.log(data.response);
-          }else{
-            var saveImg=data.response;
-            this.storage.write('UserImg',saveImg.trim());
-            this.UserImg=this.wwwName+saveImg.trim();
-          }
-        }, (err) => {
-      alert("出错啦");
-        });
+    const fileTransfer: FileTransferObject = this.transfer.create();
+      let options: FileUploadOptions = {
+         fileKey: 'file',
+         fileName: 'name.jpg',
+         headers: {}
+      }
+      let reqUri = this.unithttp.getIp().code+"/Api/User/upload/uid/"+this.userId;
+      //第一个参数是文件的路径，第二个参数是服务器的url，第二个参数也可以是encodeURI(reqUri)
+      fileTransfer.upload(this.path, reqUri, options)
+       .then((data:any) => {
+        this.photoShow=false;
+        this.photoShowT=false;
+        if(data=="ERROR"){
+          console.log(data.response);
+        }else if(data=="PROERROR"){
+           console.log(data.response);
+        }else{
+          var saveImg=data.response;
+          this.storage.write('UserImg',saveImg.trim());
+          this.UserImg=this.unithttp.getIp().images+saveImg.trim();
+        }
+      }, (err) => {
+    alert("出错啦");
+      });
   }
   loockH(prodId:string){
     this.navCtr.push(GoodsinfoPage,{'goodId':prodId,'ishostory':'true'});

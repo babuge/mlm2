@@ -1,42 +1,43 @@
 import { Component} from '@angular/core';
 import {NavController,NavParams,ActionSheetController,AlertController} from 'ionic-angular';
-import { HomeModel } from '../../model/Home-model';
+import { unitHttp } from '../../model/unitHttp';
 import { StorageService } from '../../providers/storageService';
 import {InvitPage} from '../../pages/invitation/invitation';
-import { Transfer} from 'ionic-native';
+import { FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 // import { PhotoViewer } from 'ionic-native' externalRootDirectory;
 @Component({
   selector: 'Share-page',
   templateUrl: 'invitate_share.html'
 })
 export class SharePage {
+  
     public ptid:string;uid:string;showImgs:boolean=false;
-    public wwwName:string='http://www.363app.com';shareImg:string="";
+    public shareImg:string="";
     public showQust:boolean=false;showPting:boolean=false;imgName:string="";saveMsg:string="保存中...";
     public qust=[];ptInfo:any;public set:any;alertC:any;setInt:any;timer:number=0;
-
-    constructor(public params:NavParams,public navCtr:NavController,private homemodel:HomeModel,
-    public actionSheetCtrl:ActionSheetController,public storage:StorageService,public alertCtrl:AlertController){}
-    
+    constructor(public params:NavParams,public navCtr:NavController,private unithttp:unitHttp,
+    public actionSheetCtrl:ActionSheetController,public storage:StorageService,public alertCtrl:AlertController,
+    private transfer: FileTransfer, private file: File){}
     ionViewDidLoad(){
        this.ptid=this.params.get('ptId');
        this.uid=this.storage.read("UserId")+"";
-      let urlqust=this.wwwName+"/Api/Question/selUserques";
+      let urlqust=this.unithttp.getIp().code+"/Api/Question/selUserques";
       let dataQust={uid:this.storage.read("UserId")}
-      this.homemodel.postHome(urlqust,JSON.stringify(dataQust),(res)=>{
+      this.unithttp.post(urlqust,JSON.stringify(dataQust),(res)=>{
         this.showQust=true;
         this.qust=JSON.parse(res);
       });
-      let urlpt=this.wwwName+"/Api/SpellTeam/selteambyid";
+      let urlpt=this.unithttp.getIp().code+"/Api/SpellTeam/selteambyid";
       let datapt={ptid:this.ptid}
-      this.homemodel.postHome(urlpt,JSON.stringify(datapt),(res)=>{
+      this.unithttp.post(urlpt,JSON.stringify(datapt),(res)=>{
         this.showPting=true;
         this.ptInfo=JSON.parse(res);
       });
-      let urlShare=this.wwwName+"/Api/Qrcode/index";
+      let urlShare=this.unithttp.getIp().code+"/Api/Qrcode/index";
       let dataShare={uid:this.storage.read("UserId"),ptid:this.ptid}
-      this.homemodel.postHome(urlShare,JSON.stringify(dataShare),(res)=>{
-        this.shareImg=this.wwwName+JSON.parse(res);
+      this.unithttp.post(urlShare,JSON.stringify(dataShare),(res)=>{
+        this.shareImg=this.unithttp.getIp().images+JSON.parse(res);
       });
     }
     toBack(){
@@ -100,7 +101,6 @@ export class SharePage {
     }
      proFn(){
       if(this.timer==2){
-        console.log("123");
         this.saveMsg='保存到手机'; 
         this.alertC=this.alertCtrl.create({
           cssClass: 'invitate_share.scss',//css文件
@@ -121,34 +121,29 @@ export class SharePage {
 
   //存储图片
   saveImg(image){
-    const fileTransfers = new Transfer();
+    const fileTransfer: FileTransferObject = this.transfer.create();
     let url = this.shareImg;
     let path='/sdcard/DCIM/';
     // let option={};
-    fileTransfers.download(url,path+image,true).then((entry) => {
-    this.saveMsg="图片已保存至:"+entry.toURL();   
-    this.alertC=this.alertCtrl.create({
-    cssClass: 'invitate_share.scss alertas',
-    subTitle :this.saveMsg
+    fileTransfer.download(url,path+image).then((entry)=>{
+      this.saveMsg="图片已保存至:"+entry.toURL();   
+      this.alertC=this.alertCtrl.create({
+      cssClass: 'invitate_share.scss alertas',
+      subTitle :this.saveMsg });
+    }).catch((err)=>{
+      this.saveMsg="保存失败";
+      this.alertC=this.alertCtrl.create({
+      cssClass: 'invitate_share.scss',
+      enableBackdropDismiss:true,
+      buttons: [{
+      text:this.saveMsg,
+      cssClass:'altSavea',
+      }]
     });
-    this.alertC.present(); 
-    this.setInt=setTimeout(then=>this.alertHide(),4000);
-    }, (error) => {
-    this.saveMsg="保存失败";
-    this.alertC=this.alertCtrl.create({
-    cssClass: 'invitate_share.scss',
-    buttons: [{
-    text:this.saveMsg,
-    cssClass:'altSavea',
-    enableBackdropDismiss:true
-    }]
-    });
-    this.alertC.present();
-    this.setInt=setTimeout(then=>this.alertHide(),1500);
-    });
+   
+  })
+
   }
-
-
 
 
 

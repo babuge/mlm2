@@ -1,16 +1,16 @@
 import { Component} from '@angular/core';
 import { NavController, Refresher} from 'ionic-angular';
-import { HomeModel } from '../../model/Home-model';
+import { unitHttp } from '../../model/unitHttp';
 import { StorageService } from '../../providers/storageService';
 @Component({
   selector: 'MtoBankH-page',
   templateUrl: 'MtoBankH.html'
 })
 export class MtoBankHPage {
-    public Users:Array<{title:string,username:string,phone:string}>;wwwName='http://www.363app.com';
+    public Users:Array<{title:string,username:string,phone:string}>;
 
     public uid:string;refreshTxt:string;hosit=[];
-    constructor(public navCtr:NavController,public storage:StorageService,public homemodel:HomeModel){
+    constructor(public navCtr:NavController,public storage:StorageService,public unithttp:unitHttp){
     this.Users=[]; 
          
     
@@ -19,9 +19,9 @@ export class MtoBankHPage {
    
    ionViewDidLoad(){
           //请求提现记录
-           let urls=this.wwwName+'/Api/Withdrawals/wdlRecord';
+           let urls=this.unithttp.getIp().code+'/Api/Withdrawals/wdlRecord';
            let data={'uid':this.storage.read('UserId')}
-           this.homemodel.postHome(urls,JSON.stringify(data),(res)=>{
+           this.unithttp.post(urls,JSON.stringify(data),(res)=>{
               if(res.trim()=='PROERROR'){
                 console.log('参数错误');
                 return;

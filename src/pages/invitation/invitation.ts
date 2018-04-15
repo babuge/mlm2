@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { NavController,NavParams,AlertController} from 'ionic-angular';
-import { HomeModel } from '../../model/Home-model';
+import { unitHttp } from '../../model/unitHttp';
 // import { ShowmePage} from '../../pages/showme/showme';
 import { StorageService } from '../../providers/storageService';
 import {SharePage} from '../../pages/invitate_share/invitate_share';
@@ -24,7 +24,7 @@ export class InvitPage{
   private antwo:string;antwo2:string;antwo3:string;antwo4:string;antwo5:string;rdoTwo:Boolean=false;chec4:boolean=true;chec5:boolean=true;
   private answerArr=[];
     constructor(public params:NavParams,public navCtr:NavController,public tabCtrl:TabsService,
-    public homemodels:HomeModel,private alertCtrl: AlertController,public storage:StorageService){}
+    public unithttp:unitHttp,private alertCtrl: AlertController,public storage:StorageService){}
      toBack(){
        this.navCtr.pop();
      }
@@ -34,7 +34,7 @@ export class InvitPage{
   }
   ionViewDidLoad(){//页面加载完  
         // this.qustVal='问题1';
-    this.homemodels.getAll("http://363app.com/Api/Question/quest",(res)=>{    
+    this.unithttp.get(this.unithttp.getIp().code+"/Api/Question/quest","",(res)=>{    
     if(res.length==20){
     this.arrOne=res;
     }
@@ -384,7 +384,7 @@ queding(){
     }]
 
     // this.qustVal='问题1'; 
-    this.homemodels.postHome("http://363app.com/Api/Question/setQuest",JSON.stringify(data),(res)=>{    
+    this.unithttp.post(this.unithttp.getIp().code+"/Api/Question/setQuest",JSON.stringify(data),(res)=>{    
        if(res.trim()=="ISSAME"){
         this.showEmg=true;
         this.emassege="问题选重了!";

@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {SharePage} from '../../pages/invitate_share/invitate_share';
 import { StorageService } from '../../providers/storageService';
-import {HomeModel} from '../../model/Home-model';
+import {unitHttp} from '../../model/unitHttp';
 
 /*
   Generated class for the Wholookme page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+
   Ionic pages and navigation.
 */
 @Component({
@@ -17,16 +17,16 @@ import {HomeModel} from '../../model/Home-model';
 export class WholookmePage {
   showFirst  = false;looks=[];looked=[];lookedY=[];
   public lookedAll:Array<{user:any,addtime:any}>;
-  showSecond = false;uid:string="";ptId:string="";wwwName="http://www.363app.com";
+  showSecond = false;uid:string="";ptId:string="";
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public storage:StorageService,public homemodel:HomeModel) {  }
+  public storage:StorageService,public unithttp:unitHttp) {  }
   ionViewDidLoad() {
     this.uid=""+this.storage.read("UserId");
     this.ptId=""+this.navParams.get("ptId");
     //谁看我
-    let urling=this.wwwName+"/Api/Looks/supportCount";
+    let urling=this.unithttp.getIp().code+"/Api/Looks/supportCount";
     let dataShow={'uid':this.uid,'ptid':this.ptId}
-    this.homemodel.postHome(urling,JSON.stringify(dataShow),(res)=>{
+    this.unithttp.post(urling,JSON.stringify(dataShow),(res)=>{
    if(res==='PROERROR'){
         console.log(res);
       }
@@ -40,9 +40,9 @@ export class WholookmePage {
       }
     });
     //看过我今天
-    let urllooked=this.wwwName+"/Api/Looks/supportToday";
+    let urllooked=this.unithttp.getIp().code+"/Api/Looks/supportToday";
     let datalooked={'uid':this.uid,'ptid':this.ptId}
-   this.homemodel.postHome(urllooked,JSON.stringify(datalooked),(res)=>{
+   this.unithttp.post(urllooked,JSON.stringify(datalooked),(res)=>{
    if(res==='PROERROR'){
         console.log(res);
       }
@@ -54,9 +54,9 @@ export class WholookmePage {
       }
     });
     //看过我昨天
-    let urllookY=this.wwwName+"/Api/Looks/supportYesterday";
+    let urllookY=this.unithttp.getIp().code+"/Api/Looks/supportYesterday";
     let datalookY={'uid':this.uid,'ptid':this.ptId}
-   this.homemodel.postHome(urllookY,JSON.stringify(datalookY),(res)=>{
+   this.unithttp.post(urllookY,JSON.stringify(datalookY),(res)=>{
    if(res==='PROERROR'){
         console.log(res);
       }
@@ -69,9 +69,9 @@ export class WholookmePage {
       }
     });
    //看过我所有
-    let urllookA=this.wwwName+"/Api/Looks/supportAll";
+    let urllookA=this.unithttp.getIp().code+"/Api/Looks/supportAll";
     let datalookA={'uid':this.uid,'ptid':this.ptId}
-   this.homemodel.postHome(urllookA,JSON.stringify(datalookA),(res)=>{
+   this.unithttp.post(urllookA,JSON.stringify(datalookA),(res)=>{
    if(res==='PROERROR'){
         console.log(res);
       }

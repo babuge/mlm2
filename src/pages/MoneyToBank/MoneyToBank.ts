@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { HomeModel } from '../../model/Home-model';
+import { unitHttp } from '../../model/unitHttp';
 import { StorageService } from '../../providers/storageService';
 // import {pipServece} from '../../providers/pipArrEnd';
 // import {BandCardPage} from '../../pages/bandCard/bandCard';
@@ -9,10 +9,10 @@ import { StorageService } from '../../providers/storageService';
   templateUrl: 'MoneyToBank.html'
 })
 export class MoneyToBankPage {
-    public uid:string;bankShow:boolean=false;wwwName:string='http://www.363app.com';BankInfo=[];Banknum:string;
+    public uid:string;bankShow:boolean=false;;BankInfo=[];Banknum:string;
     nums=[];array:string;endnum:number=4;BanknumEnd:string;inum:number=0;
     public MoneyNum;emassege:string;showEmg:boolean=false;porfit;
-    constructor(public navCtr:NavController,public storage:StorageService,public homemodel:HomeModel){
+    constructor(public navCtr:NavController,public storage:StorageService,public unithttp:unitHttp){
          
     
     }
@@ -25,9 +25,9 @@ export class MoneyToBankPage {
 
           this.uid=""+this.storage.read("UserId");
           console.log(this.uid);
-            let urlToBank=this.wwwName+'/Api/User/selbanknum';
+            let urlToBank=this.unithttp.getIp().code+'/Api/User/selbanknum';
           let dataToBank={'uid':this.uid};
-          this.homemodel.postHome(urlToBank,dataToBank,(res)=>{
+          this.unithttp.post(urlToBank,dataToBank,(res)=>{
             if(res.trim()==='EMPTY'){
             this.bankShow=false;
             console.log(res+"empty");
@@ -44,9 +44,9 @@ export class MoneyToBankPage {
             this.bankShow=true;
             this.BankInfo=JSON.parse(res);   
           })
-          let urlporfit=this.wwwName+"/Api/User/profit";
+          let urlporfit=this.unithttp.getIp().code+"/Api/User/profit";
           let dataporfit={'uid':this.uid}
-          this.homemodel.postHome(urlporfit,dataporfit,(res)=>{            
+          this.unithttp.post(urlporfit,dataporfit,(res)=>{            
          
             this.porfit=res;
   
@@ -67,9 +67,9 @@ export class MoneyToBankPage {
        setTimeout(then=>this.errShowFn(),2000);       
        return;
     }
-    let urlPost=this.wwwName+'/Api/Withdrawals/withdrawals';
+    let urlPost=this.unithttp.getIp().code+'/Api/Withdrawals/withdrawals';
     let dataPost={'uid':this.uid,'money':this.MoneyNum}
-    this.homemodel.postHome(urlPost,JSON.stringify(dataPost),(res)=>{
+    this.unithttp.post(urlPost,JSON.stringify(dataPost),(res)=>{
             if(res.trim()==='EMPTY'){
             alert('提现失败！');  
             console.log(res+"empty");   

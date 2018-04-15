@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Response,Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { HTTP} from '@ionic-native/http';
 import 'rxjs/add/operator/toPromise';
-
 /*
   Generated class for the HttpServer provider.
 
@@ -11,62 +9,31 @@ import 'rxjs/add/operator/toPromise';
 */
 @Injectable()
 export class HttpServer {
-  constructor(public http: Http) {}
-  // public doGet(url: string) {
-  //   var headers = new Headers();
-  //   headers.append('Content-Type', 'application/json');
-  //   let options = new RequestOptions({ headers: headers });
-  //   return this.http.get(url, options).toPromise()
-  //     .then(res => res.json())
-  //     .catch(err => {
-  //       this.handleError(err);
-  //     });
-  // }
-    public doGet(url: string) {
+  constructor(public http: HTTP) {this.http.setRequestTimeout(20);}
+    public doGet(url: string,body:Object) {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    let options = new RequestOptions({ headers: headers });
-    return this.http.get(url, options).toPromise()
-      .then(res => res.json())
-      .catch(err => {
-        this.handleError(err);
-      });
-  }
-    public doGets(url: string) {
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    let options = new RequestOptions({ headers: headers });
-    return this.http.get(url, options).toPromise()
+    // let options = new RequestOptions({ headers: headers });
+    
+    // return this.http.get(url,body, headers).toPromise()
+    return this.http.get(url,body, headers)
       .then(res => res)
       .catch(err => {
         this.handleError(err);
       });
   }
-
-
-  public doPost(url: string, body: any) {
-    var headers = new Headers();
+  public doPost(url: string, body: Object) {
+    let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    let options = new RequestOptions({ headers: headers });
-    return this.http.post(url, body, options).toPromise()
-      .then(res =>res.json())
-      .catch(err => {
-        this.handleError(err);
-      });
-  }
-    public doPosts(url: string, body: any) {
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    let options = new RequestOptions({ headers: headers });
-    return this.http.post(url, body, options).toPromise()
-      .then(res =>res)
+    return this.http.post(url, body, headers)
+      .then(res =>res )
       .catch(err => {
         this.handleError(err);
       });
   }
   private handleError(error: Response) {
-    console.log(error);
-    return Observable.throw(error.json().error||'Server Error');
+    // return Promise.reject(error.message || error);
+    console.log(JSON.stringify(error)||'Server Error');
   }
 
 }

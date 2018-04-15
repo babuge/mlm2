@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {HomeModel} from '../../model/Home-model';
+import {unitHttp} from '../../model/unitHttp';
 /*
   Generated class for the Goodsinfo page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+
   Ionic pages and navigation.
 */
 @Component({
@@ -15,11 +15,11 @@ export class GoodsinfoPage {
     public Goods = null;
   public GoodsIndex = null;
   public showCar = false;showPage=false;theOder:string="请选择款式";
-  public goodId:string;wwwName:string="http://www.363app.com";sxImg:string="";
+  public goodId:string;sxImg:string="";
   items=[];teamTxtew;item=[];
   public runhost:boolean=true;gethost;
   // goall:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public homemodel:HomeModel) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public unithttp:unitHttp) {
     for(let ss=0;ss<10;ss++){
       this.item[ss]=ss;
     }
@@ -32,12 +32,12 @@ export class GoodsinfoPage {
       this.runhost=false;
     }
     console.log('ionViewDidLoad GoodsinfoPage'); 
-    let url=this.wwwName+"/Api/Goods/selGoodsTotal";
+    let url=this.unithttp.getIp().code+"/Api/Goods/selGoodsTotal";
     this.goodId=this.navParams.get("goodId");
     console.log(this.navParams.get("goodId"));
     let data={'gid':this.goodId}
     console.log("goodId:"+this.goodId);
-  this.homemodel.postHome(url,JSON.stringify(data),(res)=>{ 
+  this.unithttp.post(url,JSON.stringify(data),(res)=>{ 
    if(res==='PROERROR'){
       console.log(res)
       return;

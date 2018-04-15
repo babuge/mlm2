@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { NavController} from 'ionic-angular';
-import { HomeModel } from '../../model/Home-model';
+import { unitHttp } from '../../model/unitHttp';
 import { StorageService } from '../../providers/storageService';
 
 
@@ -10,7 +10,7 @@ import { StorageService } from '../../providers/storageService';
 })
 export class OpinionPage{
     public url:string="";texts:string;uid:string;
-    constructor(public navCtr:NavController,public homemodel:HomeModel,public storage:StorageService){
+    constructor(public navCtr:NavController,public unithttp:unitHttp,public storage:StorageService){
       
     }
     ionViewDidLoad(){//页面加载完  
@@ -19,12 +19,12 @@ export class OpinionPage{
 
     }
     submite(){
-      this.url="http://www.363app.com/Api/Feedback/addOpinion";
+      this.url=this.unithttp.getIp().code+"/Api/Feedback/addOpinion";
       this.uid=""+this.storage.read("UserId");
    
       //post请求   
      let data={"uid":this.uid,content:this.texts}
-      this.homemodel.postHome(this.url,JSON.stringify(data),(res)=>{
+      this.unithttp.post(this.url,JSON.stringify(data),(res)=>{
         if(res==="ERROR"||res==="PROERROR"){
           console.log("反馈失败！");
           return;

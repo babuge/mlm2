@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { NavController,Refresher,App} from 'ionic-angular';
-import { HomeModel } from '../../model/Home-model';
+import { unitHttp } from '../../model/unitHttp';
 import {MyDataPage} from '../../pages/myData/myData';
 import {MoneyPage} from '../../pages/getMoney/getMoney';
 import {MypartnerPage} from '../../pages/mypartner/mypartner';
@@ -9,7 +9,7 @@ import { StorageService } from '../../providers/storageService';
 import {MessegePage} from '../../pages/Messege/Messege';
 import {OpinionPage} from '../../pages/opinion/opinion';
 import {LoginPage} from '../../pages/logIn/login';
-// import { HomeModel } from '../../model/Home-model';
+// import { unitHttp } from '../../model/unitHttp';
 @Component({
     selector:'my-homeS', 
     templateUrl:'my-home.html',
@@ -17,22 +17,21 @@ import {LoginPage} from '../../pages/logIn/login';
 })
 export class MyHomePage{
 
-    public Users:Array<{title:string,id:string}>;wwwName="http://www.363app.com";
-    public urls:string="http://363app.com/Api/User/userPorfit/uid/1";
+    public Users:Array<{title:string,id:string}>;
     public UserImg:string='assets/images/logo.png';uid:string;
-    constructor(public NavCtrl:NavController,public homemodel:HomeModel,public storage:StorageService,public appCtrl:App){
+    constructor(public NavCtrl:NavController,public unithttp:unitHttp,public storage:StorageService,public appCtrl:App){
     this.Users=[];
 
     }
 
     ionViewDidLoad(){
-       this.homemodel.getAll(this.urls,(res)=>{    
+       this.unithttp.get(this.unithttp.getIp().code+"/User/userPorfit/uid/1","",(res)=>{    
     this.Users=res;
-    this.UserImg=this.wwwName+res.porfile;
+    this.UserImg=this.unithttp.getIp().images+res.porfile;
     this.uid=res.id;
     console.log(this.uid)
     })
-    //   this.homemodel.getAllList((res)=>{
+    //   this.unithttp.getList((res)=>{
     //       console.log(res);
     //       this.List = res.list;
     //   })
@@ -84,9 +83,9 @@ refreshTxt:string;
           refresher.complete();
       },3000)
     }, 15000);
-  this.homemodel.getAll(this.urls,(res)=>{
+  this.unithttp.get(this.unithttp.getIp().code+"/User/userPorfit/uid/1","",(res)=>{
       this.storage.write('UserImg',res.porfile);
-      this.UserImg=this.wwwName+this.storage.read("UserImg");    
+      this.UserImg=this.unithttp.getIp().code+this.storage.read("UserImg");    
       refresher.complete();
   })
   console.log('Begin async operation',refresher);

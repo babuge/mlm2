@@ -15,7 +15,7 @@
   </section>
   <ion-slides #slic class="mlm-slide" *ngIf="showslide" autoplay="3000" loop>
     <ion-slide  *ngFor="let slie of slides">
-      <img [src]="wwwName+slie.adimg" />
+      <img [src]="slie.adimg" />
     </ion-slide>    
   </ion-slides>
 
@@ -31,7 +31,7 @@
     <div class="list-box fqdt">
       <div class="item" *ngFor="let itema of Pting;let i=index">
         <div class="left-image-box">
-          <div class='imgBox' ><img width="110" height="155" (click)="toGoodsInfo(itema.goods.id)" [src]="'http://www.363app.com'+itema.imgpath"></div>        
+          <div class='imgBox' ><img width="110" height="155" (click)="toGoodsInfo(itema.goods.id)" [src]="itema.imgpath"></div>        
           <p class="start">开：<span>{{itema.start_time*1000 | date:'yy-MM-dd'+" "+'hh:mm:ss'}}</span></p>
           <p class="end">结：<span>{{itema.start_time*1000+itema.goods.xgdays*24*3600*1000+""| date:'yy-MM-dd'+" "+'hh:mm:ss'}}</span></p>
         </div>
@@ -85,7 +85,7 @@
 <div class="list-box">
   <div class="item" *ngFor="let hots of Hot;trackBy: trackByFn;">
       <div class="left-image-box">
-  <div class='imgBox' ><img width="110" height="155" (click)="toGoodsInfo(hots.goods.id)" [src]="'http://www.363app.com'+hots.imgpath"></div>  
+  <div class='imgBox' ><img width="110" height="155" (click)="toGoodsInfo(hots.goods.id)" [src]="hots.imgpath"></div>  
       <p class="start">开：<span>{{hots.start_time*1000+""| date:'yy-MM-dd'+" "+'hh:mm:ss'}}</span></p>
       <p class="end">结：<span>{{hots.start_time*1000+hots.goods.xgdays*24*3600*1000+"" | date:'yy-MM-dd'+" "+'hh:mm:ss'}}</span></p>
     </div>
@@ -116,7 +116,7 @@
   <div class="list-box">
       <div class="item" *ngFor="let itemb of items;trackBy: trackByFn;">
          <div class="left-image-box">
-      <div class='imgBox' ><img width="110" height="155" (click)="toGoodsInfo(itemb.id)" [src]="wwwName+itemb.goodsimg"></div>  
+      <div class='imgBox' ><img width="110" height="155" (click)="toGoodsInfo(itemb.id)" [src]="itemb.goodsimg"></div>  
         </div>
         <div class="right-content">
           <div class="clear">

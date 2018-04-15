@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
-import { HomeModel } from '../../model/Home-model';
+import { unitHttp } from '../../model/unitHttp';
 import { StorageService } from '../../providers/storageService';
 import {BandCardPage} from '../../pages/bandCard/bandCard';
 import {MoneyToBankPage} from '../../pages/MoneyToBank/MoneyToBank';
@@ -12,8 +12,8 @@ import {MtoBankHPage} from '../../pages/MtoBankH/MtoBankH';
 export class MoneyPage {
     public Users:Array<{title:string,username:string,phone:string}>;
 
-    public UserImg:string='assets/images/logo.png';public uid:string;profitArr:string='';wwwName="http://www.363app.com";
-    constructor(public navCtr:NavController,public homemodel:HomeModel,public storage:StorageService){
+    public UserImg:string='assets/images/logo.png';public uid:string;profitArr:string='';
+    constructor(public navCtr:NavController,public unithttp:unitHttp,public storage:StorageService){
     this.Users=[]; 
          
     
@@ -35,13 +35,13 @@ export class MoneyPage {
       }
     }   
    ionViewDidLoad(){
-          this.UserImg=this.wwwName+this.storage.read("UserImg");
+          this.UserImg=this.unithttp.getIp().code+this.storage.read("UserImg");
           this.uid=""+this.storage.read("UserId");
           console.log(this.uid);
              console.log("123"+"--1--");
-          let urlProfit=this.wwwName+'/Api/User/profit';
+          let urlProfit=this.unithttp.getIp().code+'/Api/User/profit';
           let dataProfit={'uid':this.uid}   
-          this.homemodel.postHome(urlProfit,JSON.stringify(dataProfit),(res)=>{
+          this.unithttp.post(urlProfit,JSON.stringify(dataProfit),(res)=>{
                if(res==='PROERROR'){
                 console.log(res)
                 return;

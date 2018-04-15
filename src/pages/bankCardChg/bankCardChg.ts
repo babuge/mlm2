@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { HomeModel } from '../../model/Home-model';
+import { unitHttp } from '../../model/unitHttp';
 import { StorageService } from '../../providers/storageService';
 
 @Component({
@@ -9,10 +9,10 @@ import { StorageService } from '../../providers/storageService';
 })
 export class CardChangePage {
     public reBankCode:number;bankCode:string="";
-    public gaming: string = "";wwwName='http://www.363app.com';emassege;
+    public gaming: string = "";emassege;
     public BankName:string;BankCarCode:string;
     public uid:string;userName:string;url:string;showEmg:boolean=false;
-    constructor(public navCtr:NavController,public storage:StorageService,public homemodel:HomeModel){
+    constructor(public navCtr:NavController,public storage:StorageService,public unithttp:unitHttp){
 
     }
   ionViewDidLoad() {
@@ -49,11 +49,11 @@ errShowFn(){
           setTimeout(then=>this.errShowFn(),2000);
           return;
         }
-          this.url=this.wwwName+'/Api/User/setbank';
+          this.url=this.unithttp.getIp().code+'/Api/User/setbank';
           let bancode=this.bankCode+"";
           console.log(this.gaming+"---"+this.bankCode+"----"+this.uid);
           let data={'uid':this.storage.read("UserId"),'banktype':this.gaming,'banknum':bancode}
-          this.homemodel.postHome(this.url,JSON.stringify(data),(res)=>{
+          this.unithttp.post(this.url,JSON.stringify(data),(res)=>{
           if(res.trim()=='PROERROR'){
             alert('未知错误！'); 
           return;

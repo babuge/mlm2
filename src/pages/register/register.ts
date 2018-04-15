@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { NavController,AlertController} from 'ionic-angular';
-import { HomeModel } from '../../model/Home-model';
+import { unitHttp } from '../../model/unitHttp';
 import {LoginPage} from '../../pages/logIn/login';
 import { StorageService } from '../../providers/storageService';
 @Component({
@@ -9,7 +9,7 @@ import { StorageService } from '../../providers/storageService';
 })
 export class RegPage{
     public url:string="";uid:string;phone:number;passWord:string;repassWord:string;altShow:boolean=false;altTxt:string;imgSrc:string="assets/images/logo.jpg";
-    constructor(public navCtr:NavController,public homemodel:HomeModel,public storage:StorageService,public altCtrl:AlertController){      
+    constructor(public navCtr:NavController,public unithttp:unitHttp,public storage:StorageService,public altCtrl:AlertController){      
     }
     ionViewDidLoad(){//页面加载完  
       
@@ -41,12 +41,12 @@ export class RegPage{
        this.altTxt="密码格式不正确！数字，下划线，字母的6~11位密码！";
       return;
     }
-    //   this.url="http://www.363app.com/Api/Feedback/addOpinion";
+    //   this.url=this.unithttp.getIp().code+"/Api/Feedback/addOpinion";
     //   this.uid=""+this.storage.read("UserId");
    
     //   //post请求   
     //  let data={url}
-    //   this.homemodel.postHome(this.url,JSON.stringify(data),(res)=>{
+    //   this.unithttp.post(this.url,JSON.stringify(data),(res)=>{
     //     if(res==="ERROR"||res==="PROERROR"){
     //       console.log("反馈失败！");
     //       return;

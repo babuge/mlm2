@@ -1,7 +1,7 @@
 import { Component,Input } from '@angular/core';
 import { NavController,ScrollEvent } from 'ionic-angular';
 import {GoodsinfoPage} from '../../pages/goodsinfo/goodsinfo';
-import { HomeModel } from '../../model/Home-model';
+import { unitHttp } from '../../model/unitHttp';
 @Component({
   selector: 'page-about ',
   templateUrl: 'about.html'
@@ -9,13 +9,12 @@ import { HomeModel } from '../../model/Home-model';
 export class AboutPage {
    @Input("slides") slides: Array<{adimg:any}>; 
  public items=[];imgArr:any=[];
- public wwwName:string='http://www.363app.com';
  public classfiyId:string="0";moreInfo:string="更多信息...";sxImg="";theOder:string;GoodsInfo=[];
   public Goods = null;
   public GoodsIndex = null;
   public showCar = false;hasmore=true;run=false;showmg=false;hiden=false;showslide:boolean=false;
   public page:number=1;repage:number=1;stateCtrl:string="enabled";
-  constructor(public navCtrl: NavController,public homemodel:HomeModel) {
+  constructor(public navCtrl: NavController,public unithttp:unitHttp) {
     //是否显示动态时间-timer
   }
   //滚动监听
@@ -35,13 +34,13 @@ export class AboutPage {
 
     ionViewDidLoad(){//页面加载完 
       //启动轮播
-  this.homemodel.postHome(this.wwwName+"/api/advert",JSON.stringify({}),(res)=>{
+  this.unithttp.post(this.unithttp.getIp().code+"/api/advert",JSON.stringify({}),(res)=>{
     if(res.trim()==='EMPTY'){return;}
     this.showBanner(JSON.parse(res));  
   }); 
-  let url=this.wwwName+"/Api/Goods/selGoodsHotBytype";
+  let url=this.unithttp.getIp().code+"/Api/Goods/selGoodsHotBytype";
   let data={'clasid':this.classfiyId,'currentPage':this.page}
-  this.homemodel.postHome(url,JSON.stringify(data),(res)=>{ 
+  this.unithttp.post(url,JSON.stringify(data),(res)=>{ 
    if(res==='PROERROR'){
       console.log(res)
       return;
@@ -78,9 +77,9 @@ outrun(){
     setTimeout(() => {
       this.run=true;
       this.page++;
-      let url=this.wwwName+"/Api/Goods/selGoodsHotBytype/";
+      let url=this.unithttp.getIp().code+"/Api/Goods/selGoodsHotBytype/";
       let data={'clasid':this.classfiyId,'currentPage':this.page}
-      this.homemodel.postHome(url,JSON.stringify(data),(res)=>{ 
+      this.unithttp.post(url,JSON.stringify(data),(res)=>{ 
       if(res==='PROERROR'){
       console.log(res)
       this.moreInfo="未知错误...";
@@ -123,9 +122,9 @@ outrun(){
   switch (str){
   case '1':{
   this.classfiyId=str;
-  let url=this.wwwName+"/Api/Goods/selGoodsHotBytype";
+  let url=this.unithttp.getIp().code+"/Api/Goods/selGoodsHotBytype";
   let data={'clasid':str,'currentPage':this.page}
-  this.homemodel.postHome(url,JSON.stringify(data),(res)=>{ 
+  this.unithttp.post(url,JSON.stringify(data),(res)=>{ 
   if(res==='PROERROR'){
       console.log(res);
       this.moreInfo="未知错误...";
@@ -151,9 +150,9 @@ outrun(){
   case '2':{
 
   this.classfiyId=str;
-  let url=this.wwwName+"/Api/Goods/selGoodsHotBytype";
+  let url=this.unithttp.getIp().code+"/Api/Goods/selGoodsHotBytype";
   let data={'clasid':str,'currentPage':this.page}
-  this.homemodel.postHome(url,JSON.stringify(data),(res)=>{ 
+  this.unithttp.post(url,JSON.stringify(data),(res)=>{ 
   if(res==='PROERROR'){
       console.log(res)
       this.moreInfo="未知错误...";
@@ -180,9 +179,9 @@ outrun(){
   case '3':{
 
   this.classfiyId=str;
-  let url=this.wwwName+"/Api/Goods/selGoodsHotBytype";
+  let url=this.unithttp.getIp().code+"/Api/Goods/selGoodsHotBytype";
   let data={'clasid':str,'currentPage':this.page}
-  this.homemodel.postHome(url,JSON.stringify(data),(res)=>{ 
+  this.unithttp.post(url,JSON.stringify(data),(res)=>{ 
   if(res==='PROERROR'){
       console.log(res)
       this.moreInfo="未知错误...";
@@ -209,9 +208,9 @@ outrun(){
   case '4':{
 
   this.classfiyId=str;
-  let url=this.wwwName+"/Api/Goods/selGoodsHotBytype";
+  let url=this.unithttp.getIp().code+"/Api/Goods/selGoodsHotBytype";
   let data={'clasid':str,'currentPage':this.page}
-  this.homemodel.postHome(url,JSON.stringify(data),(res)=>{ 
+  this.unithttp.post(url,JSON.stringify(data),(res)=>{ 
   if(res==='PROERROR'){
       console.log(res)
       this.moreInfo="未知错误...";
@@ -238,9 +237,9 @@ outrun(){
   case '5':{
 
   this.classfiyId=str;
-  let url=this.wwwName+"/Api/Goods/selGoodsHotBytype";
+  let url=this.unithttp.getIp().code+"/Api/Goods/selGoodsHotBytype";
   let data={'clasid':str,'currentPage':this.page}
-  this.homemodel.postHome(url,JSON.stringify(data),(res)=>{ 
+  this.unithttp.post(url,JSON.stringify(data),(res)=>{ 
    if(res==='PROERROR'){
       console.log(res)
       this.moreInfo="未知错误...";
@@ -267,9 +266,9 @@ outrun(){
   case '6':{
 
   this.classfiyId=str;
-  let url=this.wwwName+"/Api/Goods/selGoodsHotBytype";
+  let url=this.unithttp.getIp().code+"/Api/Goods/selGoodsHotBytype";
   let data={'clasid':str,'currentPage':this.page}
-  this.homemodel.postHome(url,JSON.stringify(data),(res)=>{ 
+  this.unithttp.post(url,JSON.stringify(data),(res)=>{ 
    if(res==='PROERROR'){
       console.log(res)
       this.moreInfo="未知错误...";
@@ -296,9 +295,9 @@ outrun(){
   case '7':{
 
   this.classfiyId=str;
-  let url=this.wwwName+"/Api/Goods/selGoodsHotBytype";
+  let url=this.unithttp.getIp().code+"/Api/Goods/selGoodsHotBytype";
   let data={'clasid':str,'currentPage':this.page}
-  this.homemodel.postHome(url,JSON.stringify(data),(res)=>{ 
+  this.unithttp.post(url,JSON.stringify(data),(res)=>{ 
    if(res==='PROERROR'){
       console.log(res)
       this.moreInfo="未知错误...";
@@ -325,9 +324,9 @@ outrun(){
   case '8':{
 
   this.classfiyId=str;
-  let url=this.wwwName+"/Api/Goods/selGoodsHotBytype";
+  let url=this.unithttp.getIp().code+"/Api/Goods/selGoodsHotBytype";
   let data={'clasid':str,'currentPage':this.page}
-  this.homemodel.postHome(url,JSON.stringify(data),(res)=>{ 
+  this.unithttp.post(url,JSON.stringify(data),(res)=>{ 
    if(res==='PROERROR'){
       console.log(res)
       this.moreInfo="未知错误...";
@@ -369,9 +368,9 @@ outrun(){
   }
   showCarFn(prodtId:string){
     this.theOder='请选择款式';
-   let url=this.wwwName+"/Api/Goods/selgoodsPro";
+   let url=this.unithttp.getIp().code+"/Api/Goods/selgoodsPro";
     let data={'gid':prodtId}
-    this.homemodel.postHome(url,JSON.stringify(data),(res)=>{ 
+    this.unithttp.post(url,JSON.stringify(data),(res)=>{ 
    if(res==='PROERROR'){
       console.log(res)
       return;
