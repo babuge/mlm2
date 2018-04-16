@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class unitHttp {
   private environment:String = "dev";//dev or rel
   private address:String ="baidu.com";//defuate:baidu.com
-  constructor(public http: HttpServer) { }
+  constructor(private http: HttpServer) { }
 
   public post = (url, data, callback: Function): any => {
     this.http.doPost(url, data).then((res: any) => {
