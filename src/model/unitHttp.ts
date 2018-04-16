@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class unitHttp {
-  private environment = "dev";//dev or rel
+  private environment:String = "dev";//dev or rel
+  private address:String ="baidu.com";//defuate:baidu.com
   constructor(public http: HttpServer) { }
 
   public post = (url, data, callback: Function): any => {
@@ -24,26 +25,20 @@ export class unitHttp {
     });
   }
   public getIp() {
-    if (this.environment === "dev") {
+    if (this.environment === "dev" ||this.environment === "rel") {
       return {
-        images: "http://img.dev.babuge.com",
-        code: "http://code.dev.babuge.com",
-        video: "http://video.dev.babuge.com",
-        threeD: "http://3d.dev.babuge.com"
+        images: "http://img."+this.environment+this.address,
+        code: "http://code."+this.environment+this.address,
+        video: "http://video."+this.environment+this.address,
+        threeD: "http://3d."+this.environment+this.address
       }
     }
-    if (this.environment === "rel") {
-      return {
-        images: "http://img.rel.babuge.com",
-        code: "http://code.rel.babuge.com",
-        video: "http://video.rel.babuge.com",
-        threeD: "http://3d.rel.babuge.com"
-      }
-    }
-
   }
   public setEnvironment(str: "dev" | "rel") {
     this.environment = str;
+  }
+  public setAddress(str:String) {
+    this.address = str;
   }
 
 
