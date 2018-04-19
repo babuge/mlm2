@@ -6,6 +6,8 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HTTP } from '@ionic-native/http';
+import { JPush } from '@jiguang-ionic/jpush';
+import { Device } from '@ionic-native/device';
 
 import { HttpServer } from '../providers/http-server';
 import { TabsService } from '../providers/tabs-server';
@@ -43,6 +45,7 @@ import { MessegeSubPage } from '../pages/MessegeSub/MessegeSub';
 import { OpinionPage } from '../pages/opinion/opinion';
 import { LoginPage } from '../pages/logIn/login';
 import { RegPage } from '../pages/register/register';
+import {JpushPage} from '../pages/jpush/jpush';
 
 @NgModule({
   declarations: [
@@ -77,7 +80,8 @@ import { RegPage } from '../pages/register/register';
     MessegeSubPage,
     OpinionPage,
     LoginPage,
-    RegPage
+    RegPage,
+    JpushPage
   ],
   imports: [
     // IonicModule.forRoot(MyApp)
@@ -125,7 +129,8 @@ import { RegPage } from '../pages/register/register';
     MessegeSubPage,
     OpinionPage,
     LoginPage,
-    RegPage
+    RegPage,
+    JpushPage
   ],
   providers: [
     StatusBar,
@@ -135,7 +140,8 @@ import { RegPage } from '../pages/register/register';
     unitHttp,
     StorageService,
     TabsService,
-
+    JPush,
+    Device,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

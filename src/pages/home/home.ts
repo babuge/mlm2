@@ -12,6 +12,7 @@ import { MyDataPage } from '../../pages/myData/myData';
 import { MoneyPage } from '../../pages/getMoney/getMoney';
 import { GoodsinfoPage } from '../../pages/goodsinfo/goodsinfo';
 import { TabsService } from '../../providers/tabs-server';
+import {JpushPage} from '../../pages/jpush/jpush';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -304,8 +305,10 @@ export class HomePage {
   toGoodsInfo(prodId: string) {
     this.navCtrl.push(GoodsinfoPage, { 'goodId': prodId })
   }
-
-
+  //to jpush
+  toJpushPage(){
+    this.navCtrl.push(JpushPage,{});
+  }
 
 
 

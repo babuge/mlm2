@@ -1,6 +1,6 @@
 {
-  "name": "mlm3",
-  "app_id": "",
+  "name": "com.bbg.mlm",
+  "app_id": "com.bbg.mlm",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

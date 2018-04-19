@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "com.bbg.mlm",
+  "short_name": "朦胧美",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{

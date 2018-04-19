@@ -10,15 +10,18 @@
   </ion-refresher>
   <section class="top-user-info">  
   <ion-img class="img-icon" width="85" height="85" [src]="haveUser" (click)="lookMyself()"></ion-img>   
-<h3 class='usernameH3'><span class="user-name text-stroke-4" [attr.data-name]='User.username'  (click)="lookMyself()">{{User.username}}</span></h3>
+    <h3 class='usernameH3'><span class="user-name text-stroke-4" [attr.data-name]='User.username'  (click)="lookMyself()">{{User.username}}</span></h3>
     <p class="noMargin" ><span class="text-stroke-4"  (click)="toMyMoney()" data-name="我赚的米：">我赚的米：</span><span class="money text-stroke-4" *ngIf="showUser"  (click)="toMyMoney()" [attr.data-name]="'￥'+User.porfit">￥{{User.porfit}}</span></p>
+  </section>
+  <section class="jpush-test">
+    <ion-item class="click-item" (click)="toJpushPage()">toJpushPage
+    </ion-item>
   </section>
   <ion-slides #slic class="mlm-slide" *ngIf="showslide" autoplay="3000" loop>
     <ion-slide  *ngFor="let slie of slides">
       <img [src]="slie.adimg" />
     </ion-slide>    
   </ion-slides>
-
   <section>
     <!--1-->
     <div class="position" *ngIf="showPting">

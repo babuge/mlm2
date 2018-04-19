@@ -1,0 +1,34 @@
+page-jpush {
+    ion-header{
+        .toolbar{
+             .toolbar-background,
+        .toolbar-background-ios{
+             background-image: url("../assets/images/bg_top.jpg");
+            background-size:100% 100%; 
+        }
+          .button-inner{
+            color:#fff;
+          }
+              .back-button.show-back-button{
+          color:#fff;
+        }
+        .ion-ios-arrow-back:before {
+        content: "\f27d";
+    }
+        }
+        &.header-md::after,&.header-ios::after{background-image:none;}
+        .toolbar-title{
+          color:#fff;
+        }
+        .btn_next{background:none;color:#fff;}
+            .back-button-icon-ios,.back-button-icon-md{color:#fff;}
+            .back-button-text{&.back-button-text-ios,&.back-button-text-md{color:transparent;}}
+      }
+      ion-content{
+          ion-item{
+              .button-md{
+               background-image: url('../assets/images/bg_top.jpg');
+              }
+          }
+      }
+}

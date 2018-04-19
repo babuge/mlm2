@@ -94,6 +94,19 @@ page-home {
       color:red;
     }
 }
+section.jpush-test{
+  position: relative;
+  top:0;
+  left:0;
+  .click-item{
+    position: absolute;
+    z-index: 999;
+    height:45px;
+    background:greenyellow;
+    width:45px;
+    border-radius: 45px;
+  }
+}
   section.top-user-info{
     position: relative;
     width: 100%;
