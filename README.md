@@ -2,7 +2,7 @@
 # 购物app
   node version：8.9.3 ionic version:3.20.0 cordova version：8.0.0
 # download:
-  git clone https://github.com/babuge/mlm2.git \n
+  git clone https://github.com/babuge/mlm2.git \\n
   npm install
 # add plugin：
   npm install --save add @ionic-native/camera
