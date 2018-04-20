@@ -23,6 +23,7 @@
 ### tip：
   updating。。。，learning and Solve practical problems.  <br>
 ### build：
+    \(为了获取到极光推送消息，打包android平台版本7.0.0 jpush@3.4.1，如果cordova@version\<7.0.0,则打包平台@5.1.0 jpush@3.0.3\) <br>
    ionic cordova platform add android@7.0.0  <br>
    ionic cordova platform build android
 
