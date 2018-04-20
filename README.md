@@ -12,6 +12,10 @@
   npm install --save @ionic-native/file  <br>
   npm install --save @ionic-native/file-transfer  <br>
   npm install --save @ionic-native/splash-screen  @ionic-native/status-bar  <br>
+  [极光推送](https://github.com/jpush/jpush-phonegap-plugin)
+  cordova plugin add https://github.com/jpush/jpush-phonegap-plugin.git --variable APP_KEY=your_jpush_appkey  <br>
+  npm install --save @jiguang-ionic/jpush  <br>
+  
 
 ### run:
   ionic serve  <br>
