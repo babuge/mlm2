@@ -24,12 +24,12 @@ export class MyApp {
 
     });
     this.unithttp.setEnvironment("dev");
-    console.log(this.unithttp.getIp());
+    // console.log(this.unithttp.getIp());
     if(!this.storage.read('UserId')){
-	     this.rootPage=LoginPage;
+       this.rootPage=LoginPage;
+       return;
 	   }else{
-	     this.rootPage=TabsPage;
-	}
-  
+       this.rootPage=TabsPage;
+    }
 }
 }

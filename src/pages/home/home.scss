@@ -101,10 +101,12 @@ section.jpush-test{
   .click-item{
     position: absolute;
     z-index: 999;
-    height:45px;
+    height:50px;
     background:greenyellow;
-    width:45px;
-    border-radius: 45px;
+    width:50px;
+    border-radius: 25px;
+    padding:0;
+    text-align: center;
   }
 }
   section.top-user-info{
@@ -422,7 +424,8 @@ section.jpush-test{
               color: #fff;
               top: 0;
               left: 0;
-              background:-webkit-gradient(linear, 0 0, 0 100%, from(#d48fa4), to(#ff669a));;
+              background:-webkit-gradient(linear, 0 0, 0 100%, from(#d48fa4), to(#ff669a));
+              width:auto;
             };
           }
         }
